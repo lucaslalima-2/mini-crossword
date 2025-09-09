@@ -2,7 +2,10 @@
 import json, tkinter as tk
 
 class CrosswordBuilder():
-	def __init__(self):
+	def __init__(
+			self,
+			debug=False
+		):
 		root = tk.Tk()
 		self.root = root
 		self.root.title("Crossword Builder")
@@ -15,7 +18,20 @@ class CrosswordBuilder():
 		self.control_frame = tk.Frame(self.root)
 		self.control_frame.pack(pady=10)
 
+		# Debug matrix
+		self.debug = debug
+		self.debug_matrix = [
+			["A", "R", "M", None, "T","E","N"],
+			["B", "A", "R", "T", "E", "N", "D"],
+			["E", "A", "T", None, "A", "D", "A"],
+			["T", None, None, "M", "S", "G", None],
+			[None, None, None, None, "E","A","R"],
+			[None, None, None, None, None, "M", None],
+			[None, None, "P", "E", "T", "E", "R"]
+		]
+
 		self.entries = self.build_grid()
+		
 		self.entries[0][0].focus_set()
 
 		self.build_across = tk.BooleanVar(value=True) # Default to across
@@ -28,16 +44,30 @@ class CrosswordBuilder():
 	# Builds grid
 	def build_grid(self):
 		grid = []
-		for r in range(self.grid_size):
-			row_entries = []
-			for c in range(self.grid_size):
-				entry = self.create_entry(r, c)
-				row_entries.append(entry)
-			grid.append(row_entries)
+
+		# Fresh start
+		if not self.debug:
+			for r in range(self.grid_size):
+				row_entries = []
+				for c in range(self.grid_size):
+					entry = self.create_entry(r, c)
+					row_entries.append(entry)
+				grid.append(row_entries)
+		
+		# For debug
+		if self.debug:
+			for rownum in range(len(self.debug_matrix)):
+				row_entries = []
+				index = 0
+				for letter in self.debug_matrix[rownum]:
+					entry = self.create_entry(rownum, index, letter)
+					row_entries.append(entry)
+					index+=1
+				grid.append(row_entries)
 		return grid
 
 	# Creates entry tile
-	def create_entry(self, r, c):
+	def create_entry(self, r, c, text=None):
 		entry = tk.Entry(self.grid_frame,
 			width=2,
 			font=('Arial', 18),
@@ -46,6 +76,8 @@ class CrosswordBuilder():
 			bg='black',
 			insertbackground='white'
 		)
+		
+		# Grids
 		entry.grid(row=r, column=c, padx=1, pady=1)
 
 		# Bind Enter key
@@ -66,6 +98,12 @@ class CrosswordBuilder():
 
 		# Handle backspace
 		entry.bind("<BackSpace>", lambda e, ent=entry, row=r, col=c: self.handle_backspace(entry, row, col))
+
+		# Adds text
+		if text:
+			entry.insert(0, text)
+			entry.config(bg='white', fg='black', insertbackground='black')
+	
 		return entry
 
 	# Hanldes key release
@@ -180,6 +218,7 @@ class CrosswordBuilder():
 			onvalue=True,
 			offvalue=False
 		).pack(side='left', padx=5)
+		tk.Button(self.control_frame, text="Submit", command=self.export).pack(side="bottom", padx=5)
 		return
 
 	# Add row + col
@@ -226,5 +265,8 @@ class CrosswordBuilder():
 		self.grid_size = len(self.entries)
 		return
 
-	def submit(self):
-		pass
+	def export(self):
+		for row in self.entries:
+			for entry in row:
+				print(entry.get())
+		return
