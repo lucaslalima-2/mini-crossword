@@ -69,14 +69,19 @@ class CrosswordBuilder():
 
 	# Hanldes key release
 	def key_release(self, event, entry, row, col):
-		# Returns on navigation keys 
-		protected_keys = ["Up", "Down", "Left", "Right", "Tab", "BackSpace", "Return", "space"]
-		if event.keysym in protected_keys:
-			return
+		# Return on non-letter input
+		key = event.char.upper()
+		if not key.isalpha(): return
+		# protected_keys = ["Up", "Down", "Left", "Right", "Tab", "BackSpace", "Return", "space"]
+		# if event.keysym in protected_keys:
+		# 	return
 		
 		# Lettered keys
-		self.set_text(event, entry, row, col)
-		self.move_cursor(row, col+1) # assume move right
+		self.set_text(event, entry, row, col, key)
+		if self.build_across.get():
+			self.move_cursor(row, col+1) # assume move right
+		else:
+			self.move_cursor(row+1, col)
 		return
 
 	# Handles arrow keys
@@ -90,7 +95,10 @@ class CrosswordBuilder():
 		return
 
 	def spacebar(self, entry, row, col):
-		self.move_cursor(row, col+1)
+		if self.build_across.get():
+			self.move_cursor(row, col+1)
+		else:
+			self.move_cursor(row+1, col)
 		return "break" # prevents default space insertion
 
 	# Moves cursor (considers boundaries)
@@ -140,11 +148,8 @@ class CrosswordBuilder():
 		return
 
 	# Updates entry tile
-	def set_text(self, event, entry, row, col):
-		# Return on non-letter input
-		key = event.char.upper()
-		if not key.isalpha(): return
-
+	def set_text(self, event, entry, row, col, key):
+		# Updates value
 		entry.delete(0, tk.END)
 		entry.insert(0, key)
 		
@@ -194,6 +199,7 @@ class CrosswordBuilder():
 
 	# Shrink row + col
 	def shrink_grid(self):
+
 		if len(self.entries[0]) <= 4:
 			return  # Max size reached
 
@@ -210,3 +216,6 @@ class CrosswordBuilder():
 		# Updates grid_size
 		self.grid_size = len(self.entries)
 		return
+
+	def submit(self):
+		pass
