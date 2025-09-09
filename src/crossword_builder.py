@@ -48,17 +48,18 @@ class CrosswordBuilder():
 		)
 		entry.grid(row=r, column=c, padx=1, pady=1)
 
+		# Bind Enter key
+		entry.bind("<Return>", lambda e, row=r, col=c: self.enter_key(row, col))
+		
 		# Bind arrow keys
 		entry.bind("<Up>", lambda e, row=r, col=c: self.arrow_key(row - 1, col))
 		entry.bind("<Down>", lambda e, row=r, col=c: self.arrow_key(row + 1, col))
 		entry.bind("<Left>", lambda e, row=r, col=c: self.arrow_key(row, col - 1))
 		entry.bind("<Right>", lambda e, row=r, col=c: self.arrow_key(row, col + 1))
 
-		# Bind Enter key
-		entry.bind("<Return>", lambda e, row=r, col=c: self.enter_key(row, col))
-
-		# Spacebar
+		# Spacebar & tab
 		entry.bind("<space>", lambda e, ent=entry, row=r, col=c: self.spacebar(entry, row, col))
+		entry.bind("<Tab>", lambda e, ent=entry, row=r, col=c: self.spacebar(entry, row, col))
 
 		# Bind key release to update style when a letter is typed
 		entry.bind("<KeyRelease>", lambda e, ent=entry, row=r, col=c: self.key_release(e, ent, row, col))
@@ -72,9 +73,6 @@ class CrosswordBuilder():
 		# Return on non-letter input
 		key = event.char.upper()
 		if not key.isalpha(): return
-		# protected_keys = ["Up", "Down", "Left", "Right", "Tab", "BackSpace", "Return", "space"]
-		# if event.keysym in protected_keys:
-		# 	return
 		
 		# Lettered keys
 		self.set_text(event, entry, row, col, key)
@@ -84,14 +82,14 @@ class CrosswordBuilder():
 			self.move_cursor(row+1, col)
 		return
 
-	# Handles arrow keys
-	def arrow_key(self, row, col):
-		self.move_cursor(row, col)
-		return
-
 	# Handles enter key
 	def enter_key(self, row, col):
 		self.move_cursor(row+1, 0)
+		return
+
+	# Handles arrow keys
+	def arrow_key(self, row, col):
+		self.move_cursor(row, col)
 		return
 
 	def spacebar(self, entry, row, col):
