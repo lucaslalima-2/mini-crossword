@@ -10,5 +10,8 @@ setup:
 run:
 	$(VENV_NAME)/bin/python app.py
 
+debug:
+	$(VENV_NAME)/bin/python app.py --debug
+
 clean:
 	rm -rf $(VENV_NAME)

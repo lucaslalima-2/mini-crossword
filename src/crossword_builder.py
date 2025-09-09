@@ -21,13 +21,11 @@ class CrosswordBuilder():
 		# Debug matrix
 		self.debug = debug
 		self.debug_matrix = [
-			["A", "R", "M", None, "T","E","N"],
-			["B", "A", "R", "T", "E", "N", "D"],
-			["E", "A", "T", None, "A", "D", "A"],
-			["T", None, None, "M", "S", "G", None],
-			[None, None, None, None, "E","A","R"],
-			[None, None, None, None, None, "M", None],
-			[None, None, "P", "E", "T", "E", "R"]
+			[None, "C", "D", "S", None],
+			["C", "L", "O", "T", "H"],
+			["H", "A", "R", "R", "Y"],
+			["A", "S", "K", "U", "P"],
+			["R", "H", "Y", "M", "E"]
 		]
 
 		self.entries = self.build_grid()
@@ -218,7 +216,7 @@ class CrosswordBuilder():
 			onvalue=True,
 			offvalue=False
 		).pack(side='left', padx=5)
-		tk.Button(self.control_frame, text="Submit", command=self.export).pack(side="bottom", padx=5)
+		tk.Button(self.control_frame, text="Export", command=self.export).pack(side="bottom", padx=5)
 		return
 
 	# Add row + col
@@ -267,6 +265,6 @@ class CrosswordBuilder():
 
 	def export(self):
 		for row in self.entries:
-			for entry in row:
+			for l in row:
 				print(entry.get())
 		return
