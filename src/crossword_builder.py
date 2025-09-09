@@ -161,7 +161,7 @@ class CrosswordBuilder():
 		tk.Button(self.control_frame, text="Shrink Row + col", command=self.shrink_grid).pack(side='left', padx=5)
 		tk.Checkbutton(
 			self.control_frame,
-			text="Type Across",
+			text="[T/F] Across/Down",
 			variable=self.build_across,
 			onvalue=True,
 			offvalue=False
