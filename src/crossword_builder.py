@@ -105,6 +105,7 @@ class CrosswordBuilder():
 			self.move_cursor(row+1, col)
 		return "break" # prevents default space insertion
 
+	# Shift-key toggle
 	def toggle_build_across(self):
 		self.build_across.set(not self.build_across.get())
 		return
