@@ -74,11 +74,9 @@ class CrosswordBuilder():
 		if event.keysym in protected_keys:
 			return
 		
+		# Lettered keys
 		self.set_text(event, entry, row, col)
-		if self.build_across.get():
-			self.move_cursor(row, col+1) # assume move right
-		else:
-			self.move_cursor(row+1, col)
+		self.move_cursor(row, col+1) # assume move right
 		return
 
 	# Handles arrow keys
@@ -119,8 +117,9 @@ class CrosswordBuilder():
 			rrow = maxrow-1
 	
 		# print(f"Setting: {rrow}, {rcol}")
-		self.entries[rrow][rcol].focus_set() # Update cursor
-		return
+		 # Update cursor
+		self.entries[rrow][rcol].focus_set()
+		return [rrow, rcol]
 
 	# Handles backspace
 	def handle_backspace(self, entry, row, col):
@@ -131,8 +130,11 @@ class CrosswordBuilder():
 			return
 		
 		# Currently pointing to empty entry
-		self.move_cursor(row, col-1)
-		entry = self.entries[row][col-1]
+		if self.build_across.get():
+			coords = self.move_cursor(row, col-1)
+		else:
+			coords = self.move_cursor(row-1, col)
+		entry = self.entries[coords[0]][coords[1]]
 		entry.delete(0, tk.END) # delete letter 
 		entry.config(bg='black', fg='white', insertbackground='white') # reset format
 		return
