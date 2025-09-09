@@ -70,7 +70,7 @@ class CrosswordBuilder():
 	# Hanldes key release
 	def key_release(self, event, entry, row, col):
 		# Returns on navigation keys 
-		protected_keys = ["Up", "Down", "Left", "Right", "Tab", "Backspace", "Return", "space"]
+		protected_keys = ["Up", "Down", "Left", "Right", "Tab", "BackSpace", "Return", "space"]
 		if event.keysym in protected_keys:
 			return
 		
@@ -118,25 +118,23 @@ class CrosswordBuilder():
 			# cursor up on top-edge
 			rrow = maxrow-1
 	
-		print(f"Setting: {rrow}, {rcol}")
+		# print(f"Setting: {rrow}, {rcol}")
 		self.entries[rrow][rcol].focus_set() # Update cursor
-		return
-
-	# Sets focus to desired row, col
-	def set_cursor(self, row, col):
-		self.entries[row][col].focus_set()
 		return
 
 	# Handles backspace
 	def handle_backspace(self, entry, row, col):
-		boundary = False
-		# Checks if col at edge
-		if col == self.grid_size-1:
-			boundary = True
-		
-		if boundary:
+		# Existing text in current entry
+		if entry.get().strip():
 			entry.delete(0, tk.END) # delete letter 
-			entry.config(bg='black', fg='white', insertbackground='white') # reset format
+			entry.config(bg='black', fg='white', insertbackground='white') # reset (for boundary)
+			return
+		
+		# Currently pointing to empty entry
+		self.move_cursor(row, col-1)
+		entry = self.entries[row][col-1]
+		entry.delete(0, tk.END) # delete letter 
+		entry.config(bg='black', fg='white', insertbackground='white') # reset format
 		return
 
 	# Updates entry tile
