@@ -70,9 +70,14 @@ class CrosswordBuilder():
 
 	# Hanldes key release
 	def key_release(self, event, entry, row, col):
+		# Check shift press
+		if event.state & 0x0001: 
+			self.toggle_build_across()
+
 		# Return on non-letter input
 		key = event.char.upper()
-		if not key.isalpha(): return
+		if not key.isalpha():
+			return
 		
 		# Lettered keys
 		self.set_text(event, entry, row, col, key)
@@ -92,12 +97,17 @@ class CrosswordBuilder():
 		self.move_cursor(row, col)
 		return
 
+	# Handles spacebar, tab
 	def spacebar(self, entry, row, col):
 		if self.build_across.get():
 			self.move_cursor(row, col+1)
 		else:
 			self.move_cursor(row+1, col)
 		return "break" # prevents default space insertion
+
+	def toggle_build_across(self):
+		self.build_across.set(not self.build_across.get())
+		return
 
 	# Moves cursor (considers boundaries)
 	def move_cursor(self, rrow, rcol): #requested row, requested col
@@ -164,7 +174,7 @@ class CrosswordBuilder():
 		tk.Button(self.control_frame, text="Shrink Row + col", command=self.shrink_grid).pack(side='left', padx=5)
 		tk.Checkbutton(
 			self.control_frame,
-			text="[T/F] Across/Down",
+			text="[T/F] Across/Down (Shift)",
 			variable=self.build_across,
 			onvalue=True,
 			offvalue=False
