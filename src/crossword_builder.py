@@ -40,10 +40,13 @@ class CrosswordBuilder():
 				entry.grid(row=r, column=c, padx=1, pady=1)
 
 				# Bind arrow keys
-				entry.bind("<Up>", lambda e, row=r, col=c: self.set_cursor(row - 1, col))
-				entry.bind("<Down>", lambda e, row=r, col=c: self.set_cursor(row + 1, col))
-				entry.bind("<Left>", lambda e, row=r, col=c: self.set_cursor(row, col - 1))
-				entry.bind("<Right>", lambda e, row=r, col=c: self.set_cursor(row, col + 1))
+				entry.bind("<Up>", lambda e, row=r, col=c: self.arrow_key(row - 1, col))
+				entry.bind("<Down>", lambda e, row=r, col=c: self.arrow_key(row + 1, col))
+				entry.bind("<Left>", lambda e, row=r, col=c: self.arrow_key(row, col - 1))
+				entry.bind("<Right>", lambda e, row=r, col=c: self.arrow_key(row, col + 1))
+
+				# Bind Enter key
+				entry.bind("<Return>", lambda e, row=r, col=c: self.enter_key(row, col))
 
 				# Bind key release to update style when a letter is typed
 				entry.bind("<KeyRelease>", lambda e, ent=entry, row=r, col=c: self.key_release(e, ent, row, col))
@@ -59,45 +62,43 @@ class CrosswordBuilder():
 	# Hanldes key release
 	def key_release(self, event, entry, row, col):
 		# Returns on navigation keys 
-		protected_keys = ["Up", "Down", "Left", "Right", "Tab"]
-		if not event.keysym in protected_keys:
-			self.set_text(event, entry, row, col)
-			self.move_cursor(row, col)
+		protected_keys = ["Up", "Down", "Left", "Right", "Tab", "Backspace", "Return"]
+		if event.keysym in protected_keys: return
+		self.set_text(event, entry, row, col)
+		self.move_cursor(row, col+1) # assume move right
 		return
 
-	# Updates entry tile
-	def set_text(self, event, entry, row, col):
-		# Returns on navigation keys
-		if event.keysym in ("Up", "Down", "Left", "Right", "Tab"):
-			return
-		
-		# Return on non-letter input
-		key = event.char.upper()
-		if not key.isalpha(): return
-		entry.delete(0, tk.END)
-		entry.insert(0, key)
-		
-		# Updates style
-		if entry.get().strip():
-			entry.config(bg='white', fg='black', insertbackground='black')
-		else:
-			entry.config(bg='black', fg='white', insertbackground='white')
+	# Handles arrow keys
+	def arrow_key(self, row, col):
+		self.move_cursor(row, col)
+		return
+
+	# Handles enter key
+	def enter_key(self, row, col):
+		self.move_cursor(row+1, 0)
 		return
 
 	# Moves cursor (considers boundaries)
-	def move_cursor(self, row, col):
-		rowcount = len(self.entries)
-		colcount = len(self.entries[row])
-		colnext = col+1
+	def move_cursor(self, rrow, rcol): #requested row, requested col
+		# Stores max vals
+		maxrow = len(self.entries)
+		maxcol = len(self.entries[0])
 
-		# Find cursor coords
-		if 0 <= row < rowcount:
-			if 0 <= col and colnext != colcount:
-				pnext = [row, colnext]
-			if colnext == colcount:
-				pnext = [row+1, 0]
-
-		self.set_focus(pnext[0], pnext[1]) # Update cursor
+		# Sets cursor coords
+		# print(f"Requesting: {rrow}, {rcol}")
+		if rcol > maxcol-1:
+			# cursor right on right-edge
+			rrow = 0 if rrow+1==maxrow else rrow+1
+			rcol = 0
+		elif rcol < 0:
+			# cursor left on left-edge
+			rrow = maxrow-1 if rrow-1 < 0 else rrow-1
+			rcol = maxcol-1
+		elif rrow == maxrow:
+			rrow = 0
+		
+		# print(f"Setting: {rrow}, {rcol}")
+		self.entries[rrow][rcol].focus_set() # Update cursor
 		return
 
 	# Sets focus to desired row, col
@@ -115,4 +116,19 @@ class CrosswordBuilder():
 		if boundary:
 			entry.delete(0, tk.END) # delete letter 
 			entry.config(bg='black', fg='white', insertbackground='white') # reset format
+		return
+
+	# Updates entry tile
+	def set_text(self, event, entry, row, col):
+		# Return on non-letter input
+		key = event.char.upper()
+		if not key.isalpha(): return
+		entry.delete(0, tk.END)
+		entry.insert(0, key)
+		
+		# Updates style
+		if entry.get().strip():
+			entry.config(bg='white', fg='black', insertbackground='black')
+		else:
+			entry.config(bg='black', fg='white', insertbackground='white')
 		return
