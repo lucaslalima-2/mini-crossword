@@ -318,7 +318,8 @@ class CrosswordBuilder():
 			self.get_across_clues()
 			self.get_down_clues()
 			self.set_disabled(editable=False)
-			self.add_prompts()
+			finished = self.add_prompts()
+			print(f"Finished: {finished}")
 		return
 	
 	# Iterates over self.entries to get the origin points and across words
@@ -374,8 +375,7 @@ class CrosswordBuilder():
 
 		# If all clues are done
 		if self.prompt_index >= len(self.clues):
-			tk.Label(prompt_frame, text="All prompted completed. Json created.").pack()
-			return
+			return True
 
 		# Current clue
 		clue = self.clues[self.prompt_index]
@@ -385,9 +385,10 @@ class CrosswordBuilder():
 		# Entry field
 		prompt_entry = tk.Entry(self.prompt_frame, width=50, font=('Arial', 12))
 		prompt_entry.pack(pady=5)
+		prompt_entry.focus_set() # Sets cursor
 
 		# Submit button
-		def submit_prompt():
+		def submit_prompt(button):
 				text = prompt_entry.get().strip()
 				if text:
 						clue.set_prompt(text)
