@@ -1,6 +1,9 @@
 # Libraries
 import json, tkinter as tk
 
+# Classes
+from src.clue import Clue
+
 class CrosswordBuilder():
 	def __init__(
 			self,
@@ -21,11 +24,21 @@ class CrosswordBuilder():
 		# Debug matrix
 		self.debug = debug
 		self.debug_matrix = [
-			[None, "C", "D", "S", None],
-			["C", "L", "O", "T", "H"],
-			["H", "A", "R", "R", "Y"],
-			["A", "S", "K", "U", "P"],
-			["R", "H", "Y", "M", "E"]
+			["JET", None, "ATONED", None, None, "INS"],
+			["IRE", None, "MEGAMAN", None, "MET"],
+			["MONSTERSINC", None, "PGA"],
+			["MINI", None, "MEH", None, "DOTORG"],
+			["ICING", None, None, "USE", None, "ALOE"],
+			["EASEL", None, "BALLERINA"],
+			[None, None, None, "WACO", None, "EIDETIC"],
+			["TSP", None, "DAN", None, "DOW", None, "EST"],
+			["ACOLYTE", None, "GNAW", None, None, None],
+			["PALESTINE", None, "ROVES"],
+			["ALLA", None, "RNA", None, None, "DOILY"],
+			["SLOFIE", None, "IDK", None, "LOPS"],
+			["BIC", None, "FALLINGFLAT"],
+			["AOK", None, "STEERED", None, "ESE"],
+			["RNS", None, None, "STREEP", None, "TOM"]
 		]
 
 		self.entries = self.build_grid()
@@ -34,6 +47,9 @@ class CrosswordBuilder():
 
 		self.build_across = tk.BooleanVar(value=True) # Default to across
 		self.build_controls()
+
+		# List of clues to be made on export
+		self.clues = []
 
 		# Launch
 		self.root.mainloop()
@@ -57,10 +73,17 @@ class CrosswordBuilder():
 			for rownum in range(len(self.debug_matrix)):
 				row_entries = []
 				index = 0
-				for letter in self.debug_matrix[rownum]:
-					entry = self.create_entry(rownum, index, letter)
-					row_entries.append(entry)
-					index+=1
+				for word in self.debug_matrix[rownum]:
+					if not word:
+						entry = self.create_entry(rownum, index)
+						row_entries.append(entry)
+						index+=1
+						continue
+					
+					for letter in word:
+						entry = self.create_entry(rownum, index, letter)
+						row_entries.append(entry)
+						index+=1
 				grid.append(row_entries)
 		return grid
 
@@ -77,6 +100,8 @@ class CrosswordBuilder():
 		
 		# Grids
 		entry.grid(row=r, column=c, padx=1, pady=1)
+		entry.row = r
+		entry.col = c
 
 		# Bind Enter key
 		entry.bind("<Return>", lambda e, row=r, col=c: self.enter_key(row, col))
@@ -264,7 +289,43 @@ class CrosswordBuilder():
 		return
 
 	def export(self):
+		self.get_across_clues()
+		self.get_down_clues()
+		return
+	
+	# Iterates over self.entries to get the origin points and across words
+	def get_across_clues(self):
 		for row in self.entries:
-			for l in row:
-				print(entry.get())
+			word, origin= "", ""
+			for entry in row:
+				if not entry.get():
+					if word:
+						self.clues.append(Clue(word=word, origin=origin, orient="across"))
+						word, origin, orient = "", "", ""
+				else:
+					word += entry.get()
+					if not origin: origin=[entry.row, entry.col]
+
+			#edge-case
+			if word: self.clues.append(Clue(word=word, origin=origin, orient="across"))
+		return
+	
+	# Transposes self.entries and iterates to find
+	def get_down_clues(self):
+		num_col = len(self.entries[0])
+		num_row = len(self.entries)
+		for c in range(num_col):
+			word, origin = "", ""
+			for r in range(num_row):
+				entry = self.entries[r][c]
+				if not entry.get():
+					if word:
+						self.clues.append(Clue(word=word, origin=origin, orient="down"))
+						word, origin = "", ""
+				else:
+					word += entry.get()
+					if not origin: origin = [r,c]
+		
+		#edge-case
+		if word: self.clues.append(Clue(word=word, origin=origin, orient="down"))
 		return
