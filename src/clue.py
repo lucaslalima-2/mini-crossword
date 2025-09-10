@@ -12,6 +12,11 @@ class Clue:
 		self.word = word
 		self.origin = origin
 		self.orient = orient
+		self.prompt = ""
+		return
+
+	def set_prompt(self, text):
+		self.prompt = text
 		return
 
 	def __str__(self):

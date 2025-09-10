@@ -51,6 +51,9 @@ class CrosswordBuilder():
 		# List of clues to be made on export
 		self.clues = []
 
+		# Disable flag
+		self.disabled = False
+
 		# Launch
 		self.root.mainloop()
 		return
@@ -241,7 +244,7 @@ class CrosswordBuilder():
 			onvalue=True,
 			offvalue=False
 		).pack(side='left', padx=5)
-		tk.Button(self.control_frame, text="Export", command=self.export).pack(side="bottom", padx=5)
+		tk.Button(self.control_frame, text="Export/Edit", command=self.export).pack(side="bottom", padx=5)
 		return
 
 	# Add row + col
@@ -288,9 +291,34 @@ class CrosswordBuilder():
 		self.grid_size = len(self.entries)
 		return
 
+	# Toggles edit for grid entries
+	def set_disabled(self, editable:bool):
+		for row in self.entries:
+			for entry in row:
+				try:
+					if editable:
+						self.disabled = False
+						if entry.get():
+							entry.config(state="normal", bg="white", fg="black", insertbackground="black")
+						else:
+							entry.config(state="normal", bg="black", fg="white", insertbackground="white")
+						self.prompt_frame.destroy()
+					else:
+						self.disabled = True
+						entry.config(state="disabled")
+				except:
+					pass # Handles NONE spaces
+		return
+
+	# Exports to json
 	def export(self):
-		self.get_across_clues()
-		self.get_down_clues()
+		if self.disabled:
+			self.set_disabled(editable=True)
+		else: 
+			self.get_across_clues()
+			self.get_down_clues()
+			self.set_disabled(editable=False)
+			self.add_prompts()
 		return
 	
 	# Iterates over self.entries to get the origin points and across words
@@ -328,4 +356,45 @@ class CrosswordBuilder():
 		
 		#edge-case
 		if word: self.clues.append(Clue(word=word, origin=origin, orient="down"))
+		return
+
+	# Prompts user to add descriptois to clues
+	def add_prompts(self):
+		# Initializes index
+		if not hasattr(self, 'prompt_index'):
+			self.prompt_index = 0
+		
+		# Clears previous frame
+		if hasattr(self, 'prompt_frame'):
+			self.prompt_frame.destroy()
+
+		# Tk gui with textbox field. Above field include clue from self.clues and origin
+		self.prompt_frame = tk.Frame(self.root)
+		self.prompt_frame.pack(pady=10)
+
+		# If all clues are done
+		if self.prompt_index >= len(self.clues):
+			tk.Label(prompt_frame, text="All prompted completed. Json created.").pack()
+			return
+
+		# Current clue
+		clue = self.clues[self.prompt_index]
+		labelinfo = f"{clue.orient.upper()} at {clue.origin}: {clue.word}"
+		tk.Label(self.prompt_frame, text=labelinfo, font=('Arial', 14)).pack()
+
+		# Entry field
+		prompt_entry = tk.Entry(self.prompt_frame, width=50, font=('Arial', 12))
+		prompt_entry.pack(pady=5)
+
+		# Submit button
+		def submit_prompt():
+				text = prompt_entry.get().strip()
+				if text:
+						clue.set_prompt(text)
+						self.prompt_index += 1
+						self.add_prompts()  # Load next clue
+
+		# Bind Enter key
+		prompt_entry.bind("<Return>", submit_prompt)
+		tk.Button(self.prompt_frame, text="Submit Prompt", command=submit_prompt).pack()
 		return
