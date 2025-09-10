@@ -4,6 +4,9 @@ import json, tkinter as tk
 # Classes
 from src.clue import Clue
 
+# functions
+from src.export_clues_to_json import export_clues_to_json
+
 class CrosswordBuilder():
 	def __init__(
 			self,
@@ -58,7 +61,7 @@ class CrosswordBuilder():
 		self.disabled = False
 
 		# Prompts filled flag
-		self.prompts_added = False
+		self.all_prompts_added = False
 
 		# Launch
 		self.root.mainloop()
@@ -367,10 +370,6 @@ class CrosswordBuilder():
 
 	# Prompts user to add descriptois to clues
 	def open_prompt_window(self):
-		# Initializes index
-		# if not hasattr(self, 'prompt_index'):
-			# self.prompt_index = 0
-		
 		# Clears previous frame
 		if hasattr(self, 'prompt_frame'):
 			self.prompt_frame.destroy()
@@ -381,6 +380,8 @@ class CrosswordBuilder():
 
 		# If all clues are done
 		if self.prompt_index >= len(self.clues):
+			self.all_prompts_added = True
+			export_clues_to_json(self.clues)
 			return
 
 		# Current clue
