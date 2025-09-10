@@ -1,6 +1,12 @@
 # Libraries
 import json, tkinter as tk
 
+# Classes
+from src.clue import Clue
+
+# functions
+from src.export_clues_to_json import export_clues_to_json
+
 class CrosswordBuilder():
 	def __init__(
 			self,
@@ -21,13 +27,21 @@ class CrosswordBuilder():
 		# Debug matrix
 		self.debug = debug
 		self.debug_matrix = [
-			["A", "R", "M", None, "T","E","N"],
-			["B", "A", "R", "T", "E", "N", "D"],
-			["E", "A", "T", None, "A", "D", "A"],
-			["T", None, None, "M", "S", "G", None],
-			[None, None, None, None, "E","A","R"],
-			[None, None, None, None, None, "M", None],
-			[None, None, "P", "E", "T", "E", "R"]
+			["JET", None, "ATONED", None, None, "INS"],
+			["IRE", None, "MEGAMAN", None, "MET"],
+			["MONSTERSINC", None, "PGA"],
+			["MINI", None, "MEH", None, "DOTORG"],
+			["ICING", None, None, "USE", None, "ALOE"],
+			["EASEL", None, "BALLERINA"],
+			[None, None, None, "WACO", None, "EIDETIC"],
+			["TSP", None, "DAN", None, "DOW", None, "EST"],
+			["ACOLYTE", None, "GNAW", None, None, None],
+			["PALESTINE", None, "ROVES"],
+			["ALLA", None, "RNA", None, None, "DOILY"],
+			["SLOFIE", None, "IDK", None, "LOPS"],
+			["BIC", None, "FALLINGFLAT"],
+			["AOK", None, "STEERED", None, "ESE"],
+			["RNS", None, None, "STREEP", None, "TOM"]
 		]
 
 		self.entries = self.build_grid()
@@ -36,6 +50,18 @@ class CrosswordBuilder():
 
 		self.build_across = tk.BooleanVar(value=True) # Default to across
 		self.build_controls()
+
+		# List of clues to be made on export
+		self.clues = []
+
+		# For prompt updating
+		self.prompt_index = 0
+
+		# Disable flag
+		self.disabled = False
+
+		# Prompts filled flag
+		self.all_prompts_added = False
 
 		# Launch
 		self.root.mainloop()
@@ -59,10 +85,17 @@ class CrosswordBuilder():
 			for rownum in range(len(self.debug_matrix)):
 				row_entries = []
 				index = 0
-				for letter in self.debug_matrix[rownum]:
-					entry = self.create_entry(rownum, index, letter)
-					row_entries.append(entry)
-					index+=1
+				for word in self.debug_matrix[rownum]:
+					if not word:
+						entry = self.create_entry(rownum, index)
+						row_entries.append(entry)
+						index+=1
+						continue
+					
+					for letter in word:
+						entry = self.create_entry(rownum, index, letter)
+						row_entries.append(entry)
+						index+=1
 				grid.append(row_entries)
 		return grid
 
@@ -79,6 +112,8 @@ class CrosswordBuilder():
 		
 		# Grids
 		entry.grid(row=r, column=c, padx=1, pady=1)
+		entry.row = r
+		entry.col = c
 
 		# Bind Enter key
 		entry.bind("<Return>", lambda e, row=r, col=c: self.enter_key(row, col))
@@ -218,7 +253,7 @@ class CrosswordBuilder():
 			onvalue=True,
 			offvalue=False
 		).pack(side='left', padx=5)
-		tk.Button(self.control_frame, text="Submit", command=self.export).pack(side="bottom", padx=5)
+		tk.Button(self.control_frame, text="Add Prompts/Edit", command=self.add_prompts).pack(side="bottom", padx=5)
 		return
 
 	# Add row + col
@@ -265,8 +300,111 @@ class CrosswordBuilder():
 		self.grid_size = len(self.entries)
 		return
 
-	def export(self):
+	# Toggles edit for grid entries
+	def set_disabled(self, editable:bool):
 		for row in self.entries:
 			for entry in row:
-				print(entry.get())
+				try:
+					if editable:
+						self.disabled = False
+						if entry.get():
+							entry.config(state="normal", bg="white", fg="black", insertbackground="black")
+						else:
+							entry.config(state="normal", bg="black", fg="white", insertbackground="white")
+						self.prompt_frame.destroy()
+					else:
+						self.disabled = True
+						entry.config(state="disabled")
+				except:
+					pass # Handles NONE spaces
+		return
+
+	# Opents prompt window to add descriptorsn
+	def add_prompts(self):
+		if self.disabled:
+			self.set_disabled(editable=True)
+			self.prompt_index = 0
+		else: 
+			self.get_across_clues()
+			self.get_down_clues()
+			self.set_disabled(editable=False)
+			self.open_prompt_window()
+		return
+	
+	# Iterates over self.entries to get the origin points and across words
+	def get_across_clues(self):
+		for row in self.entries:
+			word, origin= "", ""
+			for entry in row:
+				if not entry.get():
+					if word:
+						self.clues.append(Clue(word=word, origin=origin, orient="across"))
+						word, origin, orient = "", "", ""
+				else:
+					word += entry.get()
+					if not origin: origin=[entry.row, entry.col]
+
+			#edge-case
+			if word: self.clues.append(Clue(word=word, origin=origin, orient="across"))
+		return
+	
+	# Transposes self.entries and iterates to find
+	def get_down_clues(self):
+		num_col = len(self.entries[0])
+		num_row = len(self.entries)
+		for c in range(num_col):
+			word, origin = "", ""
+			for r in range(num_row):
+				entry = self.entries[r][c]
+				if not entry.get():
+					if word:
+						self.clues.append(Clue(word=word, origin=origin, orient="down"))
+						word, origin = "", ""
+				else:
+					word += entry.get()
+					if not origin: origin = [r,c]
+		
+		#edge-case
+		if word: self.clues.append(Clue(word=word, origin=origin, orient="down"))
+		return
+
+	# Prompts user to add descriptois to clues
+	def open_prompt_window(self):
+		# Clears previous frame
+		if hasattr(self, 'prompt_frame'):
+			self.prompt_frame.destroy()
+
+		# Tk gui with textbox field. Above field include clue from self.clues and origin
+		self.prompt_frame = tk.Frame(self.root)
+		self.prompt_frame.pack(pady=10)
+
+		# If all clues are done
+		if self.prompt_index >= len(self.clues):
+			self.all_prompts_added = True
+			export_clues_to_json(self.clues)
+			return
+
+		# Current clue
+		clue = self.clues[self.prompt_index]
+		labelinfo = f"{clue.orient.upper()} at {clue.origin}: {clue.word}"
+		tk.Label(self.prompt_frame, text=labelinfo, font=('Arial', 14)).pack()			
+
+		# Entry field
+		prompt_entry = tk.Entry(self.prompt_frame, width=50, font=('Arial', 12))
+		prompt_entry.pack(pady=5)
+		prompt_entry.focus_set() # Sets cursor
+		if clue.prompt:
+			prompt_entry.insert(0, clue.prompt)
+
+		# Submit button
+		def submit_prompt(button):
+				text = prompt_entry.get().strip()
+				if text:
+						clue.set_prompt(text)
+						self.prompt_index += 1
+						self.open_prompt_window()  # Load next clue
+
+		# Bind Enter key
+		prompt_entry.bind("<Return>", submit_prompt)
+		tk.Button(self.prompt_frame, text="Submit Prompt", command=submit_prompt).pack()
 		return

@@ -8,7 +8,10 @@ setup:
 	$(VENV_NAME)/bin/pip install -r requirements.txt
 
 run:
-	$(VENV_NAME)/bin/python app.py
+	$(VENV_NAME)/bin/python3 app.py
+
+debug:
+	$(VENV_NAME)/bin/python3 app.py --debug
 
 clean:
 	rm -rf $(VENV_NAME)
