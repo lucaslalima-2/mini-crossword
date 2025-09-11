@@ -6,7 +6,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "a"
+    "prompt": "One of the New York Football Team's players"
   },
   {
     "word": "ATONED",
@@ -15,7 +15,7 @@
       "col": 4
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "Amended"
   },
   {
     "word": "INS",
@@ -24,7 +24,7 @@
       "col": 12
     },
     "orientation": "across",
-    "prompt": "f"
+    "prompt": "Opposite of outs"
   },
   {
     "word": "IRE",
@@ -33,7 +33,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "Anger"
   },
   {
     "word": "MEGAMAN",
@@ -42,7 +42,7 @@
       "col": 4
     },
     "orientation": "across",
-    "prompt": "s"
+    "prompt": "Heroic blue robot"
   },
   {
     "word": "MET",
@@ -51,7 +51,7 @@
       "col": 12
     },
     "orientation": "across",
-    "prompt": "a"
+    "prompt": "Host of a yearly gala"
   },
   {
     "word": "MONSTERSINC",
@@ -60,7 +60,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "s"
+    "prompt": "Where Sully and Mike W. work"
   },
   {
     "word": "PGA",
@@ -69,7 +69,7 @@
       "col": 12
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "Golf league"
   },
   {
     "word": "MINI",
@@ -78,7 +78,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "f"
+    "prompt": "iPod ___"
   },
   {
     "word": "MEH",
@@ -87,7 +87,7 @@
       "col": 5
     },
     "orientation": "across",
-    "prompt": "g"
+    "prompt": "Neither good nor bad"
   },
   {
     "word": "DOTORG",
@@ -96,7 +96,7 @@
       "col": 9
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "Ending for many government websites"
   },
   {
     "word": "ICING",
@@ -105,7 +105,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "s"
+    "prompt": "Finishing touches on a cake"
   },
   {
     "word": "USE",
@@ -114,7 +114,7 @@
       "col": 7
     },
     "orientation": "across",
-    "prompt": "a"
+    "prompt": "Function"
   },
   {
     "word": "ALOE",
@@ -123,7 +123,7 @@
       "col": 11
     },
     "orientation": "across",
-    "prompt": "s"
+    "prompt": "This helps burns"
   },
   {
     "word": "EASEL",
@@ -132,7 +132,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "Holds up a painter's canvas"
   },
   {
     "word": "BALLERINA",
@@ -141,7 +141,7 @@
       "col": 6
     },
     "orientation": "across",
-    "prompt": "f"
+    "prompt": "Tutu wearers"
   },
   {
     "word": "WACO",
@@ -150,7 +150,7 @@
       "col": 3
     },
     "orientation": "across",
-    "prompt": "g"
+    "prompt": "__, Texas"
   },
   {
     "word": "EIDETIC",
@@ -159,7 +159,7 @@
       "col": 8
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "Photographic"
   },
   {
     "word": "TSP",
@@ -168,7 +168,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "s"
+    "prompt": "Baking measurement"
   },
   {
     "word": "DAN",
@@ -177,7 +177,7 @@
       "col": 4
     },
     "orientation": "across",
-    "prompt": "a"
+    "prompt": "HOF Dolphins Quarterback: ___ Marino"
   },
   {
     "word": "DOW",
@@ -186,7 +186,7 @@
       "col": 8
     },
     "orientation": "across",
-    "prompt": "s"
+    "prompt": "___ Jones"
   },
   {
     "word": "EST",
@@ -195,7 +195,7 @@
       "col": 12
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "New Jersey time zone"
   },
   {
     "word": "ACOLYTE",
@@ -204,7 +204,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "f"
+    "prompt": "Clergy assistant"
   },
   {
     "word": "GNAW",
@@ -213,7 +213,7 @@
       "col": 8
     },
     "orientation": "across",
-    "prompt": "g"
+    "prompt": "Chew"
   },
   {
     "word": "PALESTINE",
@@ -222,7 +222,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "Middle-eastern country"
   },
   {
     "word": "ROVES",
@@ -231,7 +231,7 @@
       "col": 10
     },
     "orientation": "across",
-    "prompt": "s"
+    "prompt": "Roams"
   },
   {
     "word": "ALLA",
@@ -240,7 +240,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "s"
+    "prompt": "___ prima"
   },
   {
     "word": "RNA",
@@ -249,7 +249,7 @@
       "col": 5
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "Anatomical messenger"
   },
   {
     "word": "DOILY",
@@ -258,7 +258,7 @@
       "col": 10
     },
     "orientation": "across",
-    "prompt": "f"
+    "prompt": "Cute plateware ornament"
   },
   {
     "word": "SLOFIE",
@@ -267,7 +267,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "g"
+    "prompt": "Lethargic video mode"
   },
   {
     "word": "IDK",
@@ -276,7 +276,7 @@
       "col": 7
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "[Not sure]"
   },
   {
     "word": "LOPS",
@@ -285,7 +285,7 @@
       "col": 11
     },
     "orientation": "across",
-    "prompt": "sa"
+    "prompt": "Rabbit breed with big ears"
   },
   {
     "word": "BIC",
@@ -294,7 +294,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "s"
+    "prompt": "Lighter company"
   },
   {
     "word": "FALLINGFLAT",
@@ -303,7 +303,7 @@
       "col": 4
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "Singing off key"
   },
   {
     "word": "AOK",
@@ -312,7 +312,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "g"
+    "prompt": "\"No problem\""
   },
   {
     "word": "STEERED",
