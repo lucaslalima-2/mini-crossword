@@ -8,8 +8,8 @@ To match the development environment:
 
 * bash
 brew install pyenv
-pyenv install 3.12.2
-pyenv local 3.12.2
+pyenv install $(cat .python-version)
+pyenv local $(cat .python-version)
 
 After setting up your python environment:
 * make setup
