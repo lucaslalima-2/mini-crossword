@@ -321,7 +321,7 @@
       "col": 4
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "Drove"
   },
   {
     "word": "ESE",
@@ -330,7 +330,7 @@
       "col": 12
     },
     "orientation": "across",
-    "prompt": "d"
+    "prompt": "Ending on many languages"
   },
   {
     "word": "RNS",
@@ -339,7 +339,7 @@
       "col": 0
     },
     "orientation": "across",
-    "prompt": "s"
+    "prompt": "Abbr. Medical assistants"
   },
   {
     "word": "STREEP",
@@ -348,7 +348,7 @@
       "col": 5
     },
     "orientation": "across",
-    "prompt": "a"
+    "prompt": "Meryl from The Devil Wears Prada"
   },
   {
     "word": "TOM",
@@ -357,7 +357,7 @@
       "col": 12
     },
     "orientation": "across",
-    "prompt": "s"
+    "prompt": "___ and Jerry"
   },
   {
     "word": "JIMMIE",
@@ -366,7 +366,7 @@
       "col": 0
     },
     "orientation": "down",
-    "prompt": "d"
+    "prompt": "Slang for sprinkle"
   },
   {
     "word": "EROICA",
@@ -375,7 +375,7 @@
       "col": 1
     },
     "orientation": "down",
-    "prompt": "f"
+    "prompt": "Smut"
   },
   {
     "word": "TENNIS",
@@ -384,7 +384,7 @@
       "col": 2
     },
     "orientation": "down",
-    "prompt": "g"
+    "prompt": "US Open sport"
   },
   {
     "word": "SINEW",
@@ -393,7 +393,7 @@
       "col": 3
     },
     "orientation": "down",
-    "prompt": "d"
+    "prompt": "Skinny muscle"
   },
   {
     "word": "LEAF",
@@ -402,7 +402,7 @@
       "col": 3
     },
     "orientation": "down",
-    "prompt": "s"
+    "prompt": "One of a Toronto Hockey team"
   },
   {
     "word": "AMT",
@@ -411,7 +411,7 @@
       "col": 4
     },
     "orientation": "down",
-    "prompt": "a"
+    "prompt": "Abbr. for quantity"
   },
   {
     "word": "GLADYS",
@@ -420,7 +420,7 @@
       "col": 4
     },
     "orientation": "down",
-    "prompt": "d"
+    "prompt": "___ Knight and the Pips"
   },
   {
     "word": "IFS",
@@ -429,7 +429,7 @@
       "col": 4
     },
     "orientation": "down",
-    "prompt": "f"
+    "prompt": "No __, ands, or buts"
   },
   {
     "word": "TEEM",
@@ -438,7 +438,7 @@
       "col": 5
     },
     "orientation": "down",
-    "prompt": "d"
+    "prompt": "Filled with"
   },
   {
     "word": "OGRE",
@@ -447,7 +447,7 @@
       "col": 6
     },
     "orientation": "down",
-    "prompt": "sa"
+    "prompt": "Green fairytale creature"
   },
   {
     "word": "BONEIN",
@@ -456,7 +456,7 @@
       "col": 6
     },
     "orientation": "down",
-    "prompt": "s"
+    "prompt": "Chicken wings preference"
   },
   {
     "word": "NASHUA",
@@ -465,7 +465,7 @@
       "col": 7
     },
     "orientation": "down",
-    "prompt": "df"
+    "prompt": "City in New Hampshire"
   },
   {
     "word": "EMI",
@@ -474,7 +474,7 @@
       "col": 8
     },
     "orientation": "down",
-    "prompt": "g"
+    "prompt": "Can be found in: nice mice"
   },
   {
     "word": "SLEDGE",
@@ -483,7 +483,7 @@
       "col": 8
     },
     "orientation": "down",
-    "prompt": "d"
+    "prompt": "____ Sisters (\"We Are Family\")"
   },
   {
     "word": "DANDELION",
@@ -492,7 +492,7 @@
       "col": 9
     },
     "orientation": "down",
-    "prompt": "s"
+    "prompt": "A yellow flower, when in full bloom"
   },
   {
     "word": "NCO",
@@ -501,7 +501,7 @@
       "col": 10
     },
     "orientation": "down",
-    "prompt": "a"
+    "prompt": "Military ranking"
   },
   {
     "word": "EDWARD",
@@ -510,7 +510,7 @@
       "col": 10
     },
     "orientation": "down",
-    "prompt": "s"
+    "prompt": "Team ___ (for Twilight fans)"
   },
   {
     "word": "TARE",
@@ -519,7 +519,7 @@
       "col": 11
     },
     "orientation": "down",
-    "prompt": "d"
+    "prompt": "An injurious weed"
   },
   {
     "word": "WOOLF",
@@ -528,7 +528,7 @@
       "col": 11
     },
     "orientation": "down",
-    "prompt": "f"
+    "prompt": "Virginia ____"
   },
   {
     "word": "IMPOLITE",
@@ -537,7 +537,7 @@
       "col": 12
     },
     "orientation": "down",
-    "prompt": "g"
+    "prompt": "Not nice"
   },
   {
     "word": "NEGRONIS",
@@ -546,7 +546,7 @@
       "col": 13
     },
     "orientation": "down",
-    "prompt": "d"
+    "prompt": "Drinks with gin, vermouth, campar, ice"
   },
   {
     "word": "STAGEACT",
@@ -555,7 +555,7 @@
       "col": 14
     },
     "orientation": "down",
-    "prompt": "s"
+    "prompt": "Othello, for example"
   },
   {
     "word": "SYSTEM",
@@ -564,6 +564,6 @@
       "col": 14
     },
     "orientation": "down",
-    "prompt": "a"
+    "prompt": "The \"s\" in macOS"
   }
 ]
