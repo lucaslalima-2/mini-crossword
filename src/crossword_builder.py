@@ -45,7 +45,7 @@ class CrosswordBuilder():
 		]
 
 		self.entries = self.build_grid()
-		
+
 		self.entries[0][0].focus_set()
 
 		self.build_across = tk.BooleanVar(value=True) # Default to across
@@ -66,7 +66,7 @@ class CrosswordBuilder():
 		# Launch
 		self.root.mainloop()
 		return
-	
+
 	# Builds grid
 	def build_grid(self):
 		grid = []
@@ -79,7 +79,7 @@ class CrosswordBuilder():
 					entry = self.create_entry(r, c)
 					row_entries.append(entry)
 				grid.append(row_entries)
-		
+
 		# For debug
 		if self.debug:
 			for rownum in range(len(self.debug_matrix)):
@@ -91,7 +91,7 @@ class CrosswordBuilder():
 						row_entries.append(entry)
 						index+=1
 						continue
-					
+
 					for letter in word:
 						entry = self.create_entry(rownum, index, letter)
 						row_entries.append(entry)
@@ -109,7 +109,7 @@ class CrosswordBuilder():
 			bg='black',
 			insertbackground='white'
 		)
-		
+
 		# Grids
 		entry.grid(row=r, column=c, padx=1, pady=1)
 		entry.row = r
@@ -117,7 +117,7 @@ class CrosswordBuilder():
 
 		# Bind Enter key
 		entry.bind("<Return>", lambda e, row=r, col=c: self.enter_key(row, col))
-		
+
 		# Bind arrow keys
 		entry.bind("<Up>", lambda e, row=r, col=c: self.arrow_key(row - 1, col))
 		entry.bind("<Down>", lambda e, row=r, col=c: self.arrow_key(row + 1, col))
@@ -138,20 +138,20 @@ class CrosswordBuilder():
 		if text:
 			entry.insert(0, text)
 			entry.config(bg='white', fg='black', insertbackground='black')
-	
+
 		return entry
 
 	# Hanldes key release
 	def key_release(self, event, entry, row, col):
 		# Check shift press
-		if event.state & 0x0001: 
+		if event.state & 0x0001: # Shift hex
 			self.toggle_build_across()
 
 		# Return on non-letter input
 		key = event.char.upper()
 		if not key.isalpha():
 			return
-		
+
 		# Lettered keys
 		self.set_text(event, entry, row, col, key)
 		if self.build_across.get():
@@ -205,9 +205,9 @@ class CrosswordBuilder():
 		elif rrow < 0:
 			# cursor up on top-edge
 			rrow = maxrow-1
-	
+
 		# print(f"Setting: {rrow}, {rcol}")
-		 # Update cursor
+		# Update cursor
 		self.entries[rrow][rcol].focus_set()
 		return [rrow, rcol]
 
@@ -218,7 +218,7 @@ class CrosswordBuilder():
 			entry.delete(0, tk.END) # delete letter 
 			entry.config(bg='black', fg='white', insertbackground='white') # reset (for boundary)
 			return
-		
+
 		# Currently pointing to empty entry
 		if self.build_across.get():
 			coords = self.move_cursor(row, col-1)
@@ -234,7 +234,7 @@ class CrosswordBuilder():
 		# Updates value
 		entry.delete(0, tk.END)
 		entry.insert(0, key)
-		
+
 		# Updates style
 		if entry.get().strip():
 			entry.config(bg='white', fg='black', insertbackground='black')
@@ -259,7 +259,7 @@ class CrosswordBuilder():
 	# Add row + col
 	def grow_grid(self):
 		if len(self.entries[0]) > 20:
-			return  # Max size reached
+			return	# Max size reached
 
 		currowcount = len(self.entries)
 		curcolcount = len(self.entries[0])
@@ -284,7 +284,7 @@ class CrosswordBuilder():
 	def shrink_grid(self):
 
 		if len(self.entries[0]) <= 4:
-			return  # Max size reached
+			return	# Max size reached
 
 		# Removes bottom row
 		for entry in self.entries[-1]:
@@ -324,13 +324,13 @@ class CrosswordBuilder():
 		if self.disabled:
 			self.set_disabled(editable=True)
 			self.prompt_index = 0
-		else: 
+		else:
 			self.get_across_clues()
 			self.get_down_clues()
 			self.set_disabled(editable=False)
 			self.open_prompt_window()
 		return
-	
+
 	# Iterates over self.entries to get the origin points and across words
 	def get_across_clues(self):
 		for row in self.entries:
@@ -347,8 +347,8 @@ class CrosswordBuilder():
 			#edge-case
 			if word: self.clues.append(Clue(word=word, origin=origin, orient="across"))
 		return
-	
-	# Transposes self.entries and iterates to find
+
+	# Transposes self.entries and iterates to find vertical clues
 	def get_down_clues(self):
 		num_col = len(self.entries[0])
 		num_row = len(self.entries)
@@ -363,12 +363,12 @@ class CrosswordBuilder():
 				else:
 					word += entry.get()
 					if not origin: origin = [r,c]
-		
+
 		#edge-case
 		if word: self.clues.append(Clue(word=word, origin=origin, orient="down"))
 		return
 
-	# Prompts user to add descriptois to clues
+	# Prompts user to add descriptions to clues
 	def open_prompt_window(self):
 		# Clears previous frame
 		if hasattr(self, 'prompt_frame'):
@@ -376,7 +376,7 @@ class CrosswordBuilder():
 
 		# Tk gui with textbox field. Above field include clue from self.clues and origin
 		self.prompt_frame = tk.Frame(self.root)
-		self.prompt_frame.pack(pady=10)
+		self.prompt_frame.pack(pady=10, expand=True, fill="x", anchor="center")
 
 		# If all clues are done
 		if self.prompt_index >= len(self.clues):
@@ -387,24 +387,40 @@ class CrosswordBuilder():
 		# Current clue
 		clue = self.clues[self.prompt_index]
 		labelinfo = f"{clue.orient.upper()} at {clue.origin}: {clue.word}"
-		tk.Label(self.prompt_frame, text=labelinfo, font=('Arial', 14)).pack()			
+		tk.Label(self.prompt_frame, text=labelinfo, font=('Arial', 14)).pack()
 
 		# Entry field
 		prompt_entry = tk.Entry(self.prompt_frame, width=50, font=('Arial', 12))
 		prompt_entry.pack(pady=5)
 		prompt_entry.focus_set() # Sets cursor
-		if clue.prompt:
-			prompt_entry.insert(0, clue.prompt)
+		if clue.prompt: prompt_entry.insert(0, clue.prompt)
+
+		# Loads next clue
+		def next_clue(value):
+			print(value)
+			if value=="left":
+				self.prompt_index-=1
+				self.open_prompt_window()
+			else:
+				self.prompt_index+=1
+				self.open_prompt_window()
 
 		# Submit button
 		def submit_prompt(button):
-				text = prompt_entry.get().strip()
-				if text:
-						clue.set_prompt(text)
-						self.prompt_index += 1
-						self.open_prompt_window()  # Load next clue
+			text = prompt_entry.get().strip()
+			if text:
+				clue.set_prompt(text) # Update class field
+				next_clue("right") # Load next clue
 
-		# Bind Enter key
+		# Prompt bindings
+		prompt_entry.bind("<Left>", lambda event: next_clue("left"))
+		prompt_entry.bind("<Right>", lambda event: next_clue("right"))
 		prompt_entry.bind("<Return>", submit_prompt)
-		tk.Button(self.prompt_frame, text="Submit Prompt", command=submit_prompt).pack()
+
+		# Buttons
+		self.buttons_container = tk.Frame(self.prompt_frame)
+		self.buttons_container.pack(pady=10, expand=True, anchor="center")
+		tk.Button(self.buttons_container, text="<", command = lambda: next_clue("left")).pack(side="left")
+		tk.Button(self.buttons_container, text="Submit Prompt", command=submit_prompt).pack(side="left")
+		tk.Button(self.buttons_container, text=">", command=lambda: next_clue("right")).pack(side="left")
 		return
