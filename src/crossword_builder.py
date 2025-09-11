@@ -381,7 +381,7 @@ class CrosswordBuilder():
 		# If all clues are done
 		if self.prompt_index >= len(self.clues):
 			self.all_prompts_added = True
-			export_clues_to_json(self.clues)
+			export_clues_to_json(self.clues, self.grid_size)
 			return
 
 		# Current clue

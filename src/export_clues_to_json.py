@@ -1,17 +1,22 @@
 import json
 
-def export_clues_to_json(clues):
+def export_clues_to_json(clues, size):
 	# Convert each clue to a dictionary
-	data = []
+  data = {"grid_length": size, "entries": None}
+  entires = []
 	filename = "crossword_export.json"
-	for clue in clues:
+
+  # Builds entires value
+  for clue in clues:
 		clue_data = {
 			"word": clue.word,
 			"origin": {"row": clue.origin[0], "col": clue.origin[1]},
 			"orientation": clue.orient,
 			"prompt": clue.prompt
 		}
-		data.append(clue_data)
+		entries.append(clue_data)
+
+  data["entries"] = entries
 
 	# Write to JSON file
 	with open(filename, "w") as f:
