@@ -1,11 +1,19 @@
 # mini-crossword
 
-# SETUP
+## SETUP
+
+This project uses [pyenv](https://github.com/pyenv/pyenv) to manage Python versions.
+
+To match the development environment:
+
+* bash
+brew install pyenv
+pyenv install 3.12.2
+pyenv local 3.12.2
+
+After setting up your python environment:
 * make setup
 * source venv/bin/activate
-
-Note: Haven't figured out a way to enable this on macOS. MacOS does not leverage the Tcl foundation that tkinter is built on.
-Simply put, this app incompatible with macOS at the moment.
 
 # USAGE
 * To see full extent of my code, I suggest running: 
