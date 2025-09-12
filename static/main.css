@@ -1,3 +1,10 @@
 body {
   text-align: center;
 }
+
+#game-container {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  width: 100%;
+}

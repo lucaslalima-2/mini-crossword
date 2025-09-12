@@ -1,5 +1,5 @@
 const container = document.getElementById("crossword-container");
-const grid_length = crosswordJson.grid_length;
+const grid_length = crossword_json.grid_length;
 
 // Creates empty grid
 function crossword_create_grid() {
@@ -16,6 +16,4 @@ function crossword_create_grid() {
       container.appendChild(cell)
     }; // for col
   }; //for row
-
-  console.log("HERE");
 }; //function
