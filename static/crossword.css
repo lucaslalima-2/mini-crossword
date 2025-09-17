@@ -26,3 +26,9 @@
   font-size: 8px;
   color: #333;
 }
+
+.cell-disabled {
+  background-color: black;
+  pointer-events: none; /* Prevents mouse interaction */
+  color: transparent;   /* Hides any accidental text */
+}

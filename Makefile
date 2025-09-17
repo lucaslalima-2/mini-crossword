@@ -11,6 +11,9 @@ run:
 	$(VENV_NAME)/bin/python3 app.py
 
 debug:
+	$(VENV_NAME)/bin/python3 app.py --debug
+
+skipbuild:
 	$(VENV_NAME)/bin/python3 app.py --debug --skipbuild
 
 clean:
