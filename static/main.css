@@ -1,0 +1,11 @@
+body {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#game-container {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  width: 100%;
+}

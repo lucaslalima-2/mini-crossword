@@ -1,9 +1,13 @@
 import json
 
-def export_clues_to_json(clues):
+filename = "./crossword_export_debug.json"
+
+def export_clues_to_json(clues, size):
 	# Convert each clue to a dictionary
-	data = []
-	filename = "crossword_export.json"
+	data = {"grid_length": size, "entries": None}
+	entires = []
+
+	# Builds entires value
 	for clue in clues:
 		clue_data = {
 			"word": clue.word,
@@ -11,7 +15,9 @@ def export_clues_to_json(clues):
 			"orientation": clue.orient,
 			"prompt": clue.prompt
 		}
-		data.append(clue_data)
+		entries.append(clue_data)
+
+	data["entries"] = entries
 
 	# Write to JSON file
 	with open(filename, "w") as f:
