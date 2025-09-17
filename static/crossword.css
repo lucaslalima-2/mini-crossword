@@ -16,4 +16,13 @@
   font-weight: bold;
   background-color: #f9f9f9;
   width: 30px;
+  position: relative;
+}
+
+.cell-number {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 8px;
+  color: #333;
 }
