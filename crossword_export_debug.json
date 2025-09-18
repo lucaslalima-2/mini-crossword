@@ -560,6 +560,15 @@
       "prompt": "A yellow flower, when in full bloom"
     },
     {
+      "word": "KNEE",
+      "origin": {
+        "row": 11,
+        "col": 9
+      },
+      "orientation": "down",
+      "prompt": "___slap"
+    },
+    {
       "word": "NCO",
       "origin": {
         "row": 1,
@@ -578,13 +587,13 @@
       "prompt": "Team ___ (for Twilight fans)"
     },
     {
-      "word": "KNEE",
+      "word": "GDP",
       "origin": {
-        "row": 11,
+        "row": 12,
         "col": 10
       },
       "orientation": "down",
-      "prompt": "___slap"
+      "prompt": "Economic indicator"
     },
     {
       "word": "TARE",
