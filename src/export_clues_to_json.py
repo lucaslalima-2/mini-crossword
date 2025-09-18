@@ -5,7 +5,7 @@ filename = "./crossword_export_debug.json"
 def export_clues_to_json(clues, size):
 	# Convert each clue to a dictionary
 	data = {"grid_length": size, "entries": None}
-	entires = []
+	entries = []
 
 	# Builds entires value
 	for clue in clues:
@@ -23,4 +23,5 @@ def export_clues_to_json(clues, size):
 	with open(filename, "w") as f:
 		json.dump(data, f, indent=2)
 
-	print(f"Exported {len(data)} clues to {filename}")
+	print(f"Exported {len(entries)} clues to {filename}")
+	return

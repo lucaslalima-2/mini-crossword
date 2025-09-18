@@ -371,6 +371,15 @@
       "prompt": "Slang for sprinkle"
     },
     {
+      "word": "TAPASBAR",
+      "origin": {
+        "row": 7,
+        "col": 0
+      },
+      "orientation": "down",
+      "prompt": "Spanish eatery with small plates"
+    },
+    {
       "word": "EROICA",
       "origin": {
         "row": 0,
@@ -380,6 +389,15 @@
       "prompt": "Smut"
     },
     {
+      "word": "SCALLION",
+      "origin": {
+        "row": 7,
+        "col": 1
+      },
+      "orientation": "down",
+      "prompt": "Green onion"
+    },
+    {
       "word": "TENNIS",
       "origin": {
         "row": 0,
@@ -387,6 +405,15 @@
       },
       "orientation": "down",
       "prompt": "US Open sport"
+    },
+    {
+      "word": "POLLOCKS",
+      "origin": {
+        "row": 7,
+        "col": 2
+      },
+      "orientation": "down",
+      "prompt": "Splattered artist's works"
     },
     {
       "word": "SINEW",
@@ -443,6 +470,15 @@
       "prompt": "Filled with"
     },
     {
+      "word": "CATTREATS",
+      "origin": {
+        "row": 6,
+        "col": 5
+      },
+      "orientation": "down",
+      "prompt": "Kitten snacks"
+    },
+    {
       "word": "OGRE",
       "origin": {
         "row": 0,
@@ -461,6 +497,15 @@
       "prompt": "Chicken wings preference"
     },
     {
+      "word": "LET",
+      "origin": {
+        "row": 12,
+        "col": 6
+      },
+      "orientation": "down",
+      "prompt": "Tennis redo"
+    },
+    {
       "word": "NASHUA",
       "origin": {
         "row": 0,
@@ -468,6 +513,15 @@
       },
       "orientation": "down",
       "prompt": "City in New Hampshire"
+    },
+    {
+      "word": "NAILER",
+      "origin": {
+        "row": 9,
+        "col": 7
+      },
+      "orientation": "down",
+      "prompt": "Inserting tool"
     },
     {
       "word": "EMI",
@@ -488,6 +542,15 @@
       "prompt": "____ Sisters (\"We Are Family\")"
     },
     {
+      "word": "DIRE",
+      "origin": {
+        "row": 11,
+        "col": 8
+      },
+      "orientation": "down",
+      "prompt": "Desperate"
+    },
+    {
       "word": "DANDELION",
       "origin": {
         "row": 0,
@@ -495,6 +558,15 @@
       },
       "orientation": "down",
       "prompt": "A yellow flower, when in full bloom"
+    },
+    {
+      "word": "KNEE",
+      "origin": {
+        "row": 11,
+        "col": 9
+      },
+      "orientation": "down",
+      "prompt": "___slap"
     },
     {
       "word": "NCO",
@@ -513,6 +585,15 @@
       },
       "orientation": "down",
       "prompt": "Team ___ (for Twilight fans)"
+    },
+    {
+      "word": "GDP",
+      "origin": {
+        "row": 12,
+        "col": 10
+      },
+      "orientation": "down",
+      "prompt": "Economic indicator"
     },
     {
       "word": "TARE",
@@ -542,6 +623,15 @@
       "prompt": "Not nice"
     },
     {
+      "word": "VIOLET",
+      "origin": {
+        "row": 9,
+        "col": 12
+      },
+      "orientation": "down",
+      "prompt": "The V in Roy G. Biv"
+    },
+    {
       "word": "NEGRONIS",
       "origin": {
         "row": 0,
@@ -549,6 +639,15 @@
       },
       "orientation": "down",
       "prompt": "Drinks with gin, vermouth, campar, ice"
+    },
+    {
+      "word": "El Paso",
+      "origin": {
+        "row": 9,
+        "col": 13
+      },
+      "orientation": "down",
+      "prompt": "Spanish town for 'The Step' or 'The Passage'"
     },
     {
       "word": "STAGEACT",

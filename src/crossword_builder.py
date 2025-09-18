@@ -141,7 +141,7 @@ class CrosswordBuilder():
 
 		return entry
 
-	# Hanldes key release
+	# Handles key release
 	def key_release(self, event, entry, row, col):
 		# Check shift press
 		if event.state & 0x0001: # Shift hex
@@ -282,7 +282,6 @@ class CrosswordBuilder():
 
 	# Shrink row + col
 	def shrink_grid(self):
-
 		if len(self.entries[0]) <= 4:
 			return	# Max size reached
 
@@ -356,10 +355,13 @@ class CrosswordBuilder():
 			word, origin = "", ""
 			for r in range(num_row):
 				entry = self.entries[r][c]
-				if not entry.get():
+				if not entry.get() or r==num_row-1:
+					if r==num_row-1:
+						word += entry.get() # edge-case
 					if word:
 						self.clues.append(Clue(word=word, origin=origin, orient="down"))
 						word, origin = "", ""
+					continue
 				else:
 					word += entry.get()
 					if not origin: origin = [r,c]
@@ -382,6 +384,7 @@ class CrosswordBuilder():
 		if self.prompt_index >= len(self.clues):
 			self.all_prompts_added = True
 			export_clues_to_json(self.clues, self.grid_size)
+			self.root.destroy() # close window
 			return
 
 		# Current clue
@@ -397,7 +400,6 @@ class CrosswordBuilder():
 
 		# Loads next clue
 		def next_clue(value):
-			print(value)
 			if value=="left":
 				self.prompt_index-=1
 				self.open_prompt_window()
