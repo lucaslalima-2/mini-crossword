@@ -17,18 +17,45 @@
   background-color: #f9f9f9;
   width: 30px;
   position: relative;
+  outline: none;
 }
 
 .cell-number {
+  color: #333;
+  font-size: 8px;
+  left: 2px;
+  pointer-events: none;
   position: absolute;
   top: 2px;
-  left: 2px;
-  font-size: 8px;
-  color: #333;
+  user-select: none;
 }
 
 .cell-disabled {
   background-color: black;
   pointer-events: none; /* Prevents mouse interaction */
   color: transparent;   /* Hides any accidental text */
+}
+
+.cell-enabled {
+  background-color: white;
+  cursor: text;
+  outline: none;
+}
+
+.cell-input {
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  outline: none;
+  width: 100%;
+}
+
+.cell-input:disabled {
+  background-color: black;
+  color: transparent;
+  cursor: default;
 }
