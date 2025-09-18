@@ -1,0 +1,662 @@
+{
+  "grid_length": 15,
+  "entries": [
+    {
+      "word": "JET",
+      "origin": {
+        "row": 0,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "One of the New York Football Team's players"
+    },
+    {
+      "word": "ATONED",
+      "origin": {
+        "row": 0,
+        "col": 4
+      },
+      "orientation": "across",
+      "prompt": "Amended"
+    },
+    {
+      "word": "INS",
+      "origin": {
+        "row": 0,
+        "col": 12
+      },
+      "orientation": "across",
+      "prompt": "Opposite of outs"
+    },
+    {
+      "word": "IRE",
+      "origin": {
+        "row": 1,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "Anger"
+    },
+    {
+      "word": "MEGAMAN",
+      "origin": {
+        "row": 1,
+        "col": 4
+      },
+      "orientation": "across",
+      "prompt": "Heroic blue robot"
+    },
+    {
+      "word": "MET",
+      "origin": {
+        "row": 1,
+        "col": 12
+      },
+      "orientation": "across",
+      "prompt": "Host of a yearly gala"
+    },
+    {
+      "word": "MONSTERSINC",
+      "origin": {
+        "row": 2,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "Where Sully and Mike W. work"
+    },
+    {
+      "word": "PGA",
+      "origin": {
+        "row": 2,
+        "col": 12
+      },
+      "orientation": "across",
+      "prompt": "Golf league"
+    },
+    {
+      "word": "MINI",
+      "origin": {
+        "row": 3,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "iPod ___"
+    },
+    {
+      "word": "MEH",
+      "origin": {
+        "row": 3,
+        "col": 5
+      },
+      "orientation": "across",
+      "prompt": "Neither good nor bad"
+    },
+    {
+      "word": "DOTORG",
+      "origin": {
+        "row": 3,
+        "col": 9
+      },
+      "orientation": "across",
+      "prompt": "Ending for many government websites"
+    },
+    {
+      "word": "ICING",
+      "origin": {
+        "row": 4,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "Finishing touches on a cake"
+    },
+    {
+      "word": "USE",
+      "origin": {
+        "row": 4,
+        "col": 7
+      },
+      "orientation": "across",
+      "prompt": "Function"
+    },
+    {
+      "word": "ALOE",
+      "origin": {
+        "row": 4,
+        "col": 11
+      },
+      "orientation": "across",
+      "prompt": "This helps burns"
+    },
+    {
+      "word": "EASEL",
+      "origin": {
+        "row": 5,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "Holds up a painter's canvas"
+    },
+    {
+      "word": "BALLERINA",
+      "origin": {
+        "row": 5,
+        "col": 6
+      },
+      "orientation": "across",
+      "prompt": "Tutu wearers"
+    },
+    {
+      "word": "WACO",
+      "origin": {
+        "row": 6,
+        "col": 3
+      },
+      "orientation": "across",
+      "prompt": "__, Texas"
+    },
+    {
+      "word": "EIDETIC",
+      "origin": {
+        "row": 6,
+        "col": 8
+      },
+      "orientation": "across",
+      "prompt": "Photographic"
+    },
+    {
+      "word": "TSP",
+      "origin": {
+        "row": 7,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "Baking measurement"
+    },
+    {
+      "word": "DAN",
+      "origin": {
+        "row": 7,
+        "col": 4
+      },
+      "orientation": "across",
+      "prompt": "HOF Dolphins Quarterback: ___ Marino"
+    },
+    {
+      "word": "DOW",
+      "origin": {
+        "row": 7,
+        "col": 8
+      },
+      "orientation": "across",
+      "prompt": "___ Jones"
+    },
+    {
+      "word": "EST",
+      "origin": {
+        "row": 7,
+        "col": 12
+      },
+      "orientation": "across",
+      "prompt": "New Jersey time zone"
+    },
+    {
+      "word": "ACOLYTE",
+      "origin": {
+        "row": 8,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "Clergy assistant"
+    },
+    {
+      "word": "GNAW",
+      "origin": {
+        "row": 8,
+        "col": 8
+      },
+      "orientation": "across",
+      "prompt": "Chew"
+    },
+    {
+      "word": "PALESTINE",
+      "origin": {
+        "row": 9,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "Middle-eastern country"
+    },
+    {
+      "word": "ROVES",
+      "origin": {
+        "row": 9,
+        "col": 10
+      },
+      "orientation": "across",
+      "prompt": "Roams"
+    },
+    {
+      "word": "ALLA",
+      "origin": {
+        "row": 10,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "___ prima"
+    },
+    {
+      "word": "RNA",
+      "origin": {
+        "row": 10,
+        "col": 5
+      },
+      "orientation": "across",
+      "prompt": "Anatomical messenger"
+    },
+    {
+      "word": "DOILY",
+      "origin": {
+        "row": 10,
+        "col": 10
+      },
+      "orientation": "across",
+      "prompt": "Cute plateware ornament"
+    },
+    {
+      "word": "SLOFIE",
+      "origin": {
+        "row": 11,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "Lethargic video mode"
+    },
+    {
+      "word": "IDK",
+      "origin": {
+        "row": 11,
+        "col": 7
+      },
+      "orientation": "across",
+      "prompt": "[Not sure]"
+    },
+    {
+      "word": "LOPS",
+      "origin": {
+        "row": 11,
+        "col": 11
+      },
+      "orientation": "across",
+      "prompt": "Rabbit breed with big ears"
+    },
+    {
+      "word": "BIC",
+      "origin": {
+        "row": 12,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "Lighter company"
+    },
+    {
+      "word": "FALLINGFLAT",
+      "origin": {
+        "row": 12,
+        "col": 4
+      },
+      "orientation": "across",
+      "prompt": "Singing off key"
+    },
+    {
+      "word": "AOK",
+      "origin": {
+        "row": 13,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "\"No problem\""
+    },
+    {
+      "word": "STEERED",
+      "origin": {
+        "row": 13,
+        "col": 4
+      },
+      "orientation": "across",
+      "prompt": "Drove"
+    },
+    {
+      "word": "ESE",
+      "origin": {
+        "row": 13,
+        "col": 12
+      },
+      "orientation": "across",
+      "prompt": "Ending on many languages"
+    },
+    {
+      "word": "RNS",
+      "origin": {
+        "row": 14,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "Abbr. Medical assistants"
+    },
+    {
+      "word": "STREEP",
+      "origin": {
+        "row": 14,
+        "col": 5
+      },
+      "orientation": "across",
+      "prompt": "Meryl from The Devil Wears Prada"
+    },
+    {
+      "word": "TOM",
+      "origin": {
+        "row": 14,
+        "col": 12
+      },
+      "orientation": "across",
+      "prompt": "___ and Jerry"
+    },
+    {
+      "word": "JIMMIE",
+      "origin": {
+        "row": 0,
+        "col": 0
+      },
+      "orientation": "down",
+      "prompt": "Slang for sprinkle"
+    },
+    {
+      "word": "TAPASBAR",
+      "origin": {
+        "row": 7,
+        "col": 0
+      },
+      "orientation": "down",
+      "prompt": "Spanish eatery with small plates"
+    },
+    {
+      "word": "EROICA",
+      "origin": {
+        "row": 0,
+        "col": 1
+      },
+      "orientation": "down",
+      "prompt": "Smut"
+    },
+    {
+      "word": "SCALLION",
+      "origin": {
+        "row": 7,
+        "col": 1
+      },
+      "orientation": "down",
+      "prompt": "Green onion"
+    },
+    {
+      "word": "TENNIS",
+      "origin": {
+        "row": 0,
+        "col": 2
+      },
+      "orientation": "down",
+      "prompt": "US Open sport"
+    },
+    {
+      "word": "POLLOCKS",
+      "origin": {
+        "row": 7,
+        "col": 2
+      },
+      "orientation": "down",
+      "prompt": "Splattered artist's works"
+    },
+    {
+      "word": "SINEW",
+      "origin": {
+        "row": 2,
+        "col": 3
+      },
+      "orientation": "down",
+      "prompt": "Skinny muscle"
+    },
+    {
+      "word": "LEAF",
+      "origin": {
+        "row": 8,
+        "col": 3
+      },
+      "orientation": "down",
+      "prompt": "One of a Toronto Hockey team"
+    },
+    {
+      "word": "AMT",
+      "origin": {
+        "row": 0,
+        "col": 4
+      },
+      "orientation": "down",
+      "prompt": "Abbr. for quantity"
+    },
+    {
+      "word": "GLADYS",
+      "origin": {
+        "row": 4,
+        "col": 4
+      },
+      "orientation": "down",
+      "prompt": "___ Knight and the Pips"
+    },
+    {
+      "word": "IFS",
+      "origin": {
+        "row": 11,
+        "col": 4
+      },
+      "orientation": "down",
+      "prompt": "No __, ands, or buts"
+    },
+    {
+      "word": "TEEM",
+      "origin": {
+        "row": 0,
+        "col": 5
+      },
+      "orientation": "down",
+      "prompt": "Filled with"
+    },
+    {
+      "word": "CATTREATS",
+      "origin": {
+        "row": 6,
+        "col": 5
+      },
+      "orientation": "down",
+      "prompt": "Kitten snacks"
+    },
+    {
+      "word": "OGRE",
+      "origin": {
+        "row": 0,
+        "col": 6
+      },
+      "orientation": "down",
+      "prompt": "Green fairytale creature"
+    },
+    {
+      "word": "BONEIN",
+      "origin": {
+        "row": 5,
+        "col": 6
+      },
+      "orientation": "down",
+      "prompt": "Chicken wings preference"
+    },
+    {
+      "word": "LET",
+      "origin": {
+        "row": 12,
+        "col": 6
+      },
+      "orientation": "down",
+      "prompt": "Tennis redo"
+    },
+    {
+      "word": "NASHUA",
+      "origin": {
+        "row": 0,
+        "col": 7
+      },
+      "orientation": "down",
+      "prompt": "City in New Hampshire"
+    },
+    {
+      "word": "NAILER",
+      "origin": {
+        "row": 9,
+        "col": 7
+      },
+      "orientation": "down",
+      "prompt": "Inserting tool"
+    },
+    {
+      "word": "EMI",
+      "origin": {
+        "row": 0,
+        "col": 8
+      },
+      "orientation": "down",
+      "prompt": "Can be found in: nice mice"
+    },
+    {
+      "word": "SLEDGE",
+      "origin": {
+        "row": 4,
+        "col": 8
+      },
+      "orientation": "down",
+      "prompt": "____ Sisters (\"We Are Family\")"
+    },
+    {
+      "word": "DIRE",
+      "origin": {
+        "row": 11,
+        "col": 8
+      },
+      "orientation": "down",
+      "prompt": "Desperate"
+    },
+    {
+      "word": "DANDELION",
+      "origin": {
+        "row": 0,
+        "col": 9
+      },
+      "orientation": "down",
+      "prompt": "A yellow flower, when in full bloom"
+    },
+    {
+      "word": "NCO",
+      "origin": {
+        "row": 1,
+        "col": 10
+      },
+      "orientation": "down",
+      "prompt": "Military ranking"
+    },
+    {
+      "word": "EDWARD",
+      "origin": {
+        "row": 5,
+        "col": 10
+      },
+      "orientation": "down",
+      "prompt": "Team ___ (for Twilight fans)"
+    },
+    {
+      "word": "KNEE",
+      "origin": {
+        "row": 11,
+        "col": 10
+      },
+      "orientation": "down",
+      "prompt": "___slap"
+    },
+    {
+      "word": "TARE",
+      "origin": {
+        "row": 3,
+        "col": 11
+      },
+      "orientation": "down",
+      "prompt": "An injurious weed"
+    },
+    {
+      "word": "WOOLF",
+      "origin": {
+        "row": 8,
+        "col": 11
+      },
+      "orientation": "down",
+      "prompt": "Virginia ____"
+    },
+    {
+      "word": "IMPOLITE",
+      "origin": {
+        "row": 0,
+        "col": 12
+      },
+      "orientation": "down",
+      "prompt": "Not nice"
+    },
+    {
+      "word": "VIOLET",
+      "origin": {
+        "row": 9,
+        "col": 12
+      },
+      "orientation": "down",
+      "prompt": "The V in Roy G. Biv"
+    },
+    {
+      "word": "NEGRONIS",
+      "origin": {
+        "row": 0,
+        "col": 13
+      },
+      "orientation": "down",
+      "prompt": "Drinks with gin, vermouth, campar, ice"
+    },
+    {
+      "word": "El Paso",
+      "origin": {
+        "row": 9,
+        "col": 13
+      },
+      "orientation": "down",
+      "prompt": "Spanish town for 'The Step' or 'The Passage'"
+    },
+    {
+      "word": "STAGEACT",
+      "origin": {
+        "row": 0,
+        "col": 14
+      },
+      "orientation": "down",
+      "prompt": "Othello, for example"
+    },
+    {
+      "word": "SYSTEM",
+      "origin": {
+        "row": 9,
+        "col": 14
+      },
+      "orientation": "down",
+      "prompt": "The \"s\" in macOS"
+    }
+  ]
+}
