@@ -153,11 +153,13 @@ function crossword_fix_tab_bug() {
   } // for row
 } // function
 
+// Scans board for an enabled cell on [Tab]
 function scan_board(start_row, delta) {
   const start_col = delta > 0 ? 0 : grid_length - 1;
   return scan_row(start_row, start_col, delta);
 } // function
 
+// Helper scan function that only scans row on [Tab]
 function scan_row(row, col, delta){
   while(
     col >= 0 &&
