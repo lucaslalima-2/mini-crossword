@@ -129,35 +129,44 @@ function crossword_fix_tab_bug() {
           e.preventDefault();
 
           let delta = e.shiftKey ? -1 : 1;
-          let next_cell = find_next_enabled_cell(row, col + delta, delta);
+
+          // Finds next available cell in row
+          let next_cell = scan_row(row, col + delta, delta);
           if (next_cell) {
             next_cell.focus();
-          } else {
-            const nextRow = e.shiftKey ? row - 1 : row + 1;
-            const wrapCol = e.shiftKey ? grid_length - 1 : 0;
-            const fallbackInput = find_next_enabled_cell(nextRow, wrapCol, delta);
-
-            if (fallbackInput) fallbackInput.focus();
-          } // else
+            return;
+          }; // else 
+          
+          // If none, scan subsequent rows until one has an enabled cell
+          let next_row = row + delta;
+          while (next_row >= 0 && next_row < grid_length ) {
+            const fallback = scan_board(next_row, delta);
+            if (fallback) {
+              fallback.focus();
+              return;
+            } //if
+            next_row += delta;
+          } // while
         } // e.key tab
       }); // eventlistner
     } // for col
   } // for row
 } // function
 
-function find_next_enabled_cell(start_row, start_col, delta){
-  let row = start_row;
-  let col = start_col;
+function scan_board(start_row, delta) {
+  const start_col = delta > 0 ? 0 : grid_length - 1;
+  return scan_row(start_row, start_col, delta);
+} // function
 
+function scan_row(row, col, delta){
   while(
-    col >=0 &&
-    col < grid_length &&
-    node_map[row]?.[col] &
-    node_map[row][col].disabled
+    col >= 0 &&
+    col < grid_length
   ) {
+    const input = node_map[row]?.[col];
+    if (input && !input.disabled) return input;
     col += delta;
-  }
+  } // while
 
-  const input = node_map[row]?.[col];
-  return input && !input.disabled ? input : null;
-}
+  return null;
+}; // function 
