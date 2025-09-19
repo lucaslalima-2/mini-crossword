@@ -1,7 +1,7 @@
 const container = document.getElementById("crossword-container");
 const grid_length = crossword_json.grid_length;
 const entries = crossword_json.entries;
-const node_map = {};
+const input_map = {};
 
 // Creates empty grid
 function crossword_create_grid() {
@@ -38,9 +38,9 @@ function crossword_create_grid() {
       // Appends
       container.appendChild(cell)
 
-      // Store inputs in node_map
-      if (!node_map[row]) node_map[row] = {};
-      node_map[row][col] = input;
+      // Store inputs in input_map
+      if (!input_map[row]) input_map[row] = {};
+      input_map[row][col] = input;
     }; // for col
   }; //for row
 }; //function
@@ -72,7 +72,8 @@ function crossword_add_numbers() {
   } //for 
 } // function
 
-// Disables unused cells
+// Disables unused cells (ie. makes them black)
+// Sets pointer to first cell
 function crossword_initialize_cells () {
   // Make a list of all_cells
   const all_cells = new Set();  
@@ -99,20 +100,23 @@ function crossword_initialize_cells () {
       // Removes from list
       all_cells.delete(cell_id); 
     } // for
+
+    // Initializes pointer to first cell
+    input_map[0][0].focus();
   }); //foreach
 
-    // After all entries are seen, iterate over the rest of all_cells list
-    all_cells.forEach(cell_id => {
-      const cell = document.getElementById(cell_id);
-      if(cell) {
-        cell.classList.add("cell-disabled") // changes color
-        const input = cell.querySelector(".cell-input");
-        if(input) {
-          input.disabled = true
-          input.setAttribute("tabindex", "-1");
-        } // if
+  // After all entries are seen, iterate over the rest of all_cells list
+  all_cells.forEach(cell_id => {
+    const cell = document.getElementById(cell_id);
+    if(cell) {
+      cell.classList.add("cell-disabled") // changes color
+      const input = cell.querySelector(".cell-input");
+      if(input) {
+        input.disabled = true
+        input.setAttribute("tabindex", "-1");
       } // if
-    }); //foreach
+    } // if
+  }); //foreach
 } // function
 
 // Work-around for [Tab] bug; add behavior to all inputs
@@ -120,10 +124,10 @@ function crossword_initialize_cells () {
 function crossword_fix_tab_bug() {
   for (let row = 0; row < grid_length; row++) {
     for (let col = 0; col < grid_length; col++) {
-      const input = node_map[row]?.[col];
+      const input = input_map[row]?.[col];
       if (!input || input.disabled) continue;
       
-      // Add behavior
+      // Add tab behavior
       input.addEventListener("keydown", (e) => {
         if (e.key === "Tab") {
           e.preventDefault();
@@ -131,44 +135,48 @@ function crossword_fix_tab_bug() {
           let delta = e.shiftKey ? -1 : 1;
 
           // Finds next available cell in row
-          let next_cell = scan_row(row, col + delta, delta);
-          if (next_cell) {
-            next_cell.focus();
-            return;
-          }; // else 
-          
-          // If none, scan subsequent rows until one has an enabled cell
-          let next_row = row + delta;
-          while (next_row >= 0 && next_row < grid_length ) {
-            const fallback = scan_board(next_row, delta);
-            if (fallback) {
-              fallback.focus();
-              return;
-            } //if
-            next_row += delta;
-          } // while
+          let next_cell = scan_board(row, col + delta, delta);
+          if(next_cell) next_cell.focus();
         } // e.key tab
       }); // eventlistner
     } // for col
   } // for row
 } // function
 
-// Scans board for an enabled cell on [Tab]
-function scan_board(start_row, delta) {
-  const start_col = delta > 0 ? 0 : grid_length - 1;
-  return scan_row(start_row, start_col, delta);
+// Scans board for an enabled cell on [Tab] or input update
+function scan_board(start_row, start_col, delta) {
+  let row = start_row;
+  while (row >= 0 && row < grid_length) {
+    const input = scan_row(row, start_col, delta);
+    if (input) return input;
+    row += delta;
+  } // while
+  return null;
 } // function
 
 // Helper scan function that only scans row on [Tab]
 function scan_row(row, col, delta){
-  while(
-    col >= 0 &&
-    col < grid_length
-  ) {
-    const input = node_map[row]?.[col];
+  while( col >= 0 && col < grid_length) {
+    const input = input_map[row]?.[col];
     if (input && !input.disabled) return input;
     col += delta;
   } // while
-
   return null;
-}; // function 
+}; // function
+
+// Adds behavior to input to move to next cell
+function crossword_add_input_behavior() {
+  for (let row=0; row < grid_length; row++){
+    for (let col=0; col < grid_length; col++){
+      const input = input_map[row][col]
+
+      input.addEventListener("input", () => {
+        input.value = input.value.toUpperCase() // ensure uppercase\
+        if(input.value.length === 1) {
+          const next_cell = scan_board(row, col+1, 1);
+          if (next_cell) next_cell.focus();
+        }// if
+      });
+    } // for col
+  } // for row
+}; //function
