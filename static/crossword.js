@@ -169,13 +169,26 @@ function crossword_add_input_behavior() {
     for (let col=0; col < grid_length; col++){
       const input = input_map[row][col]
 
+      // Overwrite behavior
       input.addEventListener("input", (e) => {
         const new_char = (e.data || input.value.slice(-1)).toUpperCase();
         input.value = new_char;
         // console.log(`Input at [${row}, ${col}]: ${new_char}`);
         const next_cell = scan_board(row, col+1, 1);
         if (next_cell) next_cell.focus();
-      });
+      }); // addeventlistener
+
+      // Arrow navigation behavior
+      input.addEventListener("keydown", (e) => {
+        let target = null;
+        switch(e.key){
+          case "ArrowRight": target = scan_board(row, col+1, 1);
+          case "ArrowLeft":  target = scan_board(row, col-1, -1);
+        } // switch
+        target.focus(); // Updates pointer
+      }); //addeventlistener
+      
+
     } // for col
   } // for row
 }; //function
