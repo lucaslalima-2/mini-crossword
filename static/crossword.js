@@ -27,7 +27,6 @@ function crossword_create_grid() {
       // Adds input box for letter entry
       const input = document.createElement("input");
       input.className = "cell-input";
-      input.setAttribute("maxlength", "1"); // only one letter
       input.setAttribute("row", row);
       input.setAttribute("col", col);
       input.setAttribute("autocomplete", "off");
@@ -121,7 +120,7 @@ function crossword_initialize_cells () {
 
 // Work-around for [Tab] bug; add behavior to all inputs
 // [Tab] is focusing on the cell-number
-function crossword_fix_tab_bug() {
+function crossword_overwrite_tab() {
   for (let row = 0; row < grid_length; row++) {
     for (let col = 0; col < grid_length; col++) {
       const input = input_map[row]?.[col];
@@ -170,12 +169,12 @@ function crossword_add_input_behavior() {
     for (let col=0; col < grid_length; col++){
       const input = input_map[row][col]
 
-      input.addEventListener("input", () => {
-        input.value = input.value.toUpperCase() // ensure uppercase\
-        if(input.value.length === 1) {
-          const next_cell = scan_board(row, col+1, 1);
-          if (next_cell) next_cell.focus();
-        }// if
+      input.addEventListener("input", (e) => {
+        const new_char = (e.data || input.value.slice(-1)).toUpperCase();
+        input.value = new_char;
+        // console.log(`Input at [${row}, ${col}]: ${new_char}`);
+        const next_cell = scan_board(row, col+1, 1);
+        if (next_cell) next_cell.focus();
       });
     } // for col
   } // for row
