@@ -181,14 +181,17 @@ function crossword_add_input_behavior() {
       // Arrow navigation behavior
       input.addEventListener("keydown", (e) => {
         let target = null;
+        console.log("HERE :", e.key);
         switch(e.key){
-          case "ArrowRight": target = scan_board(row, col+1, 1);
-          case "ArrowLeft":  target = scan_board(row, col-1, -1);
+          case "ArrowRight":
+            target = scan_board(row, col+1, 1);
+            break;
+          case "ArrowLeft": 
+            target = scan_board(row, col-1, -1);
+            break;
         } // switch
-        target.focus(); // Updates pointer
+        if(target) target.focus(); // Updates pointer
       }); //addeventlistener
-      
-
     } // for col
   } // for row
 }; //function
