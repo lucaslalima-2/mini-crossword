@@ -1,0 +1,2339 @@
+{
+  "grid_length": 4,
+  "entries": [
+    {
+      "word": "JET",
+      "origin": {
+        "row": 0,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "word": "ATONED",
+      "origin": {
+        "row": 0,
+        "col": 4
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "word": "INS",
+      "origin": {
+        "row": 0,
+        "col": 12
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "IRE",
+      "origin": {
+        "row": 1,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "word": "MEGAMAN",
+      "origin": {
+        "row": 1,
+        "col": 4
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "word": "MET",
+      "origin": {
+        "row": 1,
+        "col": 12
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          1,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "MONSTERSINC",
+      "origin": {
+        "row": 2,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          10
+        ]
+      ]
+    },
+    {
+      "word": "PGA",
+      "origin": {
+        "row": 2,
+        "col": 12
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          2,
+          12
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          2,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "MINI",
+      "origin": {
+        "row": 3,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "word": "MEH",
+      "origin": {
+        "row": 3,
+        "col": 5
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "word": "DOTORG",
+      "origin": {
+        "row": 3,
+        "col": 9
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          3,
+          13
+        ],
+        [
+          3,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "ICING",
+      "origin": {
+        "row": 4,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "word": "USE",
+      "origin": {
+        "row": 4,
+        "col": 7
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          4,
+          7
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "word": "ALOE",
+      "origin": {
+        "row": 4,
+        "col": 11
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          4,
+          11
+        ],
+        [
+          4,
+          12
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          4,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "EASEL",
+      "origin": {
+        "row": 5,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "word": "BALLERINA",
+      "origin": {
+        "row": 5,
+        "col": 6
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          5,
+          11
+        ],
+        [
+          5,
+          12
+        ],
+        [
+          5,
+          13
+        ],
+        [
+          5,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "WACO",
+      "origin": {
+        "row": 6,
+        "col": 3
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "word": "EIDETIC",
+      "origin": {
+        "row": 6,
+        "col": 8
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          6,
+          8
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          6,
+          11
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          6,
+          13
+        ],
+        [
+          6,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "TSP",
+      "origin": {
+        "row": 7,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "word": "DAN",
+      "origin": {
+        "row": 7,
+        "col": 4
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          7,
+          4
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "word": "DOW",
+      "origin": {
+        "row": 7,
+        "col": 8
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          7,
+          8
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "word": "EST",
+      "origin": {
+        "row": 7,
+        "col": 12
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          7,
+          12
+        ],
+        [
+          7,
+          13
+        ],
+        [
+          7,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "ACOLYTE",
+      "origin": {
+        "row": 8,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "word": "GNAW",
+      "origin": {
+        "row": 8,
+        "col": 8
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          8,
+          8
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          8,
+          11
+        ]
+      ]
+    },
+    {
+      "word": "PALESTINE",
+      "origin": {
+        "row": 9,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          9,
+          6
+        ],
+        [
+          9,
+          7
+        ],
+        [
+          9,
+          8
+        ]
+      ]
+    },
+    {
+      "word": "ROVES",
+      "origin": {
+        "row": 9,
+        "col": 10
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          9,
+          10
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          9,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "ALLA",
+      "origin": {
+        "row": 10,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          10,
+          0
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          10,
+          3
+        ]
+      ]
+    },
+    {
+      "word": "RNA",
+      "origin": {
+        "row": 10,
+        "col": 5
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "word": "DOILY",
+      "origin": {
+        "row": 10,
+        "col": 10
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          10,
+          10
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          10,
+          12
+        ],
+        [
+          10,
+          13
+        ],
+        [
+          10,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "SLOFIE",
+      "origin": {
+        "row": 11,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          11,
+          0
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          11,
+          5
+        ]
+      ]
+    },
+    {
+      "word": "IDK",
+      "origin": {
+        "row": 11,
+        "col": 7
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          11,
+          7
+        ],
+        [
+          11,
+          8
+        ],
+        [
+          11,
+          9
+        ]
+      ]
+    },
+    {
+      "word": "LOPS",
+      "origin": {
+        "row": 11,
+        "col": 11
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          11,
+          11
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          11,
+          13
+        ],
+        [
+          11,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "BIC",
+      "origin": {
+        "row": 12,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          12,
+          0
+        ],
+        [
+          12,
+          1
+        ],
+        [
+          12,
+          2
+        ]
+      ]
+    },
+    {
+      "word": "FALLINGFLAT",
+      "origin": {
+        "row": 12,
+        "col": 4
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          12,
+          4
+        ],
+        [
+          12,
+          5
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          12,
+          7
+        ],
+        [
+          12,
+          8
+        ],
+        [
+          12,
+          9
+        ],
+        [
+          12,
+          10
+        ],
+        [
+          12,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          12,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "AOK",
+      "origin": {
+        "row": 13,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          13,
+          0
+        ],
+        [
+          13,
+          1
+        ],
+        [
+          13,
+          2
+        ]
+      ]
+    },
+    {
+      "word": "STEERED",
+      "origin": {
+        "row": 13,
+        "col": 4
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          13,
+          4
+        ],
+        [
+          13,
+          5
+        ],
+        [
+          13,
+          6
+        ],
+        [
+          13,
+          7
+        ],
+        [
+          13,
+          8
+        ],
+        [
+          13,
+          9
+        ],
+        [
+          13,
+          10
+        ]
+      ]
+    },
+    {
+      "word": "ESE",
+      "origin": {
+        "row": 13,
+        "col": 12
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          13,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          13,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "RNS",
+      "origin": {
+        "row": 14,
+        "col": 0
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          14,
+          0
+        ],
+        [
+          14,
+          1
+        ],
+        [
+          14,
+          2
+        ]
+      ]
+    },
+    {
+      "word": "STREEP",
+      "origin": {
+        "row": 14,
+        "col": 5
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          14,
+          5
+        ],
+        [
+          14,
+          6
+        ],
+        [
+          14,
+          7
+        ],
+        [
+          14,
+          8
+        ],
+        [
+          14,
+          9
+        ],
+        [
+          14,
+          10
+        ]
+      ]
+    },
+    {
+      "word": "TOM",
+      "origin": {
+        "row": 14,
+        "col": 12
+      },
+      "orientation": "across",
+      "prompt": "a",
+      "used_cells": [
+        [
+          14,
+          12
+        ],
+        [
+          14,
+          13
+        ],
+        [
+          14,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "JIMMIE",
+      "origin": {
+        "row": 0,
+        "col": 0
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "word": "TAPASBAR",
+      "origin": {
+        "row": 7,
+        "col": 0
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ]
+      ]
+    },
+    {
+      "word": "EROICA",
+      "origin": {
+        "row": 0,
+        "col": 1
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ]
+      ]
+    },
+    {
+      "word": "SCALLION",
+      "origin": {
+        "row": 7,
+        "col": 1
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          12,
+          1
+        ],
+        [
+          13,
+          1
+        ],
+        [
+          14,
+          1
+        ]
+      ]
+    },
+    {
+      "word": "TENNIS",
+      "origin": {
+        "row": 0,
+        "col": 2
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ]
+      ]
+    },
+    {
+      "word": "POLLOCKS",
+      "origin": {
+        "row": 7,
+        "col": 2
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          7,
+          2
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          12,
+          2
+        ],
+        [
+          13,
+          2
+        ],
+        [
+          14,
+          2
+        ]
+      ]
+    },
+    {
+      "word": "SINEW",
+      "origin": {
+        "row": 2,
+        "col": 3
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "word": "LEAF",
+      "origin": {
+        "row": 8,
+        "col": 3
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          8,
+          3
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          11,
+          3
+        ]
+      ]
+    },
+    {
+      "word": "AMT",
+      "origin": {
+        "row": 0,
+        "col": 4
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ]
+      ]
+    },
+    {
+      "word": "GLADYS",
+      "origin": {
+        "row": 4,
+        "col": 4
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "word": "IFS",
+      "origin": {
+        "row": 11,
+        "col": 4
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          11,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          13,
+          4
+        ]
+      ]
+    },
+    {
+      "word": "TEEM",
+      "origin": {
+        "row": 0,
+        "col": 5
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "word": "CATTREATS",
+      "origin": {
+        "row": 6,
+        "col": 5
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          11,
+          5
+        ],
+        [
+          12,
+          5
+        ],
+        [
+          13,
+          5
+        ],
+        [
+          14,
+          5
+        ]
+      ]
+    },
+    {
+      "word": "OGRE",
+      "origin": {
+        "row": 0,
+        "col": 6
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "word": "BONEIN",
+      "origin": {
+        "row": 5,
+        "col": 6
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          9,
+          6
+        ],
+        [
+          10,
+          6
+        ]
+      ]
+    },
+    {
+      "word": "LET",
+      "origin": {
+        "row": 12,
+        "col": 6
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          12,
+          6
+        ],
+        [
+          13,
+          6
+        ],
+        [
+          14,
+          6
+        ]
+      ]
+    },
+    {
+      "word": "NASHUA",
+      "origin": {
+        "row": 0,
+        "col": 7
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "word": "NAILER",
+      "origin": {
+        "row": 9,
+        "col": 7
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          9,
+          7
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          11,
+          7
+        ],
+        [
+          12,
+          7
+        ],
+        [
+          13,
+          7
+        ],
+        [
+          14,
+          7
+        ]
+      ]
+    },
+    {
+      "word": "EMI",
+      "origin": {
+        "row": 0,
+        "col": 8
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "word": "SLEDGE",
+      "origin": {
+        "row": 4,
+        "col": 8
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          8
+        ]
+      ]
+    },
+    {
+      "word": "DIRE",
+      "origin": {
+        "row": 11,
+        "col": 8
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          11,
+          8
+        ],
+        [
+          12,
+          8
+        ],
+        [
+          13,
+          8
+        ],
+        [
+          14,
+          8
+        ]
+      ]
+    },
+    {
+      "word": "DANDELION",
+      "origin": {
+        "row": 0,
+        "col": 9
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "word": "KNEE",
+      "origin": {
+        "row": 11,
+        "col": 9
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          11,
+          9
+        ],
+        [
+          12,
+          9
+        ],
+        [
+          13,
+          9
+        ],
+        [
+          14,
+          9
+        ]
+      ]
+    },
+    {
+      "word": "NCO",
+      "origin": {
+        "row": 1,
+        "col": 10
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          10
+        ]
+      ]
+    },
+    {
+      "word": "EDWARD",
+      "origin": {
+        "row": 5,
+        "col": 10
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          5,
+          10
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          10,
+          10
+        ]
+      ]
+    },
+    {
+      "word": "GDP",
+      "origin": {
+        "row": 12,
+        "col": 10
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          12,
+          10
+        ],
+        [
+          13,
+          10
+        ],
+        [
+          14,
+          10
+        ]
+      ]
+    },
+    {
+      "word": "TARE",
+      "origin": {
+        "row": 3,
+        "col": 11
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          5,
+          11
+        ],
+        [
+          6,
+          11
+        ]
+      ]
+    },
+    {
+      "word": "WOOLF",
+      "origin": {
+        "row": 8,
+        "col": 11
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          8,
+          11
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          11
+        ]
+      ]
+    },
+    {
+      "word": "IMPOLITE",
+      "origin": {
+        "row": 0,
+        "col": 12
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          4,
+          12
+        ],
+        [
+          5,
+          12
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          7,
+          12
+        ]
+      ]
+    },
+    {
+      "word": "VIOLET",
+      "origin": {
+        "row": 9,
+        "col": 12
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          9,
+          12
+        ],
+        [
+          10,
+          12
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          12
+        ],
+        [
+          14,
+          12
+        ]
+      ]
+    },
+    {
+      "word": "NEGRONIS",
+      "origin": {
+        "row": 0,
+        "col": 13
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          13
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          13
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          5,
+          13
+        ],
+        [
+          6,
+          13
+        ],
+        [
+          7,
+          13
+        ]
+      ]
+    },
+    {
+      "word": "ELPASO",
+      "origin": {
+        "row": 9,
+        "col": 13
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          9,
+          13
+        ],
+        [
+          10,
+          13
+        ],
+        [
+          11,
+          13
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          13
+        ]
+      ]
+    },
+    {
+      "word": "STAGEACT",
+      "origin": {
+        "row": 0,
+        "col": 14
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          0,
+          14
+        ],
+        [
+          1,
+          14
+        ],
+        [
+          2,
+          14
+        ],
+        [
+          3,
+          14
+        ],
+        [
+          4,
+          14
+        ],
+        [
+          5,
+          14
+        ],
+        [
+          6,
+          14
+        ],
+        [
+          7,
+          14
+        ]
+      ]
+    },
+    {
+      "word": "SYSTEM",
+      "origin": {
+        "row": 9,
+        "col": 14
+      },
+      "orientation": "down",
+      "prompt": "a",
+      "used_cells": [
+        [
+          9,
+          14
+        ],
+        [
+          10,
+          14
+        ],
+        [
+          11,
+          14
+        ],
+        [
+          12,
+          14
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          14
+        ]
+      ]
+    }
+  ]
+}
