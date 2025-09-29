@@ -1,7 +1,9 @@
 const container = document.getElementById("crossword-container");
-const grid_length = crossword_json.grid_length;
 const entries = crossword_json.entries;
+const grid_length = crossword_json.grid_length;
 const input_map = {};
+const cluemap = new Map();
+let input_direction = "across";
 
 // Creates empty grid
 function crossword_create_grid() {
@@ -48,12 +50,17 @@ function crossword_create_grid() {
 function crossword_add_numbers() {
   let index = 1;
 
-  // Create a lookup map for fast acess
-  const cluemap = new Map();
+  // Builds cluemap
   entries.forEach(entry => {
     const key = `${entry.origin.row}-${entry.origin.col}-${entry.orientation}`;
-    cluemap.set(key, true);  
-  });
+    cluemap.set(key, {
+      word: entry.word,
+      orientation: entry.orientation,
+      prompt: entry.prompt,
+      used_cells: entry.used_cells,
+      entry: entry
+    }); // set
+  }); //foreach
 
   // Iterates over all cells & stamps number if clue exists
   for (let row=0; row<grid_length; row++) {
@@ -171,7 +178,7 @@ function crossword_add_input_behavior() {
       input.addEventListener("input", (e) => {
         const new_char = (e.data || input.value.slice(-1)).toUpperCase();
         input.value = new_char;
-        const next_cell = scan_direction(row, col, 0, 1);
+        const next_cell = scan_direction(row, col+1, 0, 1);
         if (next_cell) next_cell.focus();
       }); // addeventlistener
 
@@ -197,6 +204,21 @@ function crossword_add_input_behavior() {
           target.focus(); // Updates pointer
         }; //if
       }); //addeventlistener
+
+      // Backspace behavior
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Backspace") {
+          e.preventDefault();
+          // Case 1: Cell has char; delete it and stay in place
+          if (input.value) {
+            input.value = "";
+          } else { // Case 2: Cell is empty; clear left-neighbor cell
+            const prev = scan_direction(row, col-1, 0, -1);
+            prev.value = "";
+            prev.focus();
+          }; // if-else
+        }; //if
+      }); // e, addeventlistener 
     } // for col
   } // for row
 }; //function
