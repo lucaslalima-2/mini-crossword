@@ -10,6 +10,7 @@
 .cell {
   height: 30px;
   border: none;
+  /* border: 1px solid #ccc; */
   /* box-shadow: inset 0 0 0 0.25px black; */
   text-align: center;
   vertical-align: middle;
@@ -55,7 +56,6 @@
 }
 
 .cell-input:disabled {
-  background-color: black;
   color: transparent;
   cursor: default;
 }

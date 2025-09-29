@@ -58,20 +58,30 @@ function crossword_add_numbers() {
       orientation: entry.orientation,
       prompt: entry.prompt,
       used_cells: entry.used_cells,
-      entry: entry
+      entry: entry,
+      index: null // placeholder for clue number
     }); // set
   }); //foreach
 
   // Iterates over all cells & stamps number if clue exists
   for (let row=0; row<grid_length; row++) {
     for(let col=0; col<grid_length; col++){
-      const has_across = cluemap.has(`${row}-${col}-across`);
-      const has_down = cluemap.has(`${row}-${col}-down`);
+      const cell = document.getElementById(`cell-${row}-${col}`);
+      const numspan = cell.querySelector(".cell-number");
+      const key_across = `${row}-${col}-across`;
+      const key_down = `${row}-${col}-down`;
+      const has_across = cluemap.has(key_across);
+      const has_down = cluemap.has(key_down);
 
       if (has_across || has_down) {
-        const cell = document.getElementById(`cell-${row}-${col}`);
-        const numspan = cell.querySelector(".cell-number");
         numspan.textContent = index;
+        // updates cluemap[key] for final number indicator (ie. "1-across", "47-down", etc.)
+        ["across", "down"].forEach(orientation => {
+          const key = `${row}-${col}-${orientation}`;
+          if (cluemap.has(key)) {
+            cluemap.get(key).number = index;
+          };//if
+        }); 
         index+=1;
       } // if
     } // for
