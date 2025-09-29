@@ -171,7 +171,7 @@ function crossword_add_input_behavior() {
       input.addEventListener("input", (e) => {
         const new_char = (e.data || input.value.slice(-1)).toUpperCase();
         input.value = new_char;
-        const next_cell = scan_direction(row, col, 0, 1);
+        const next_cell = scan_direction(row, col+1, 0, 1);
         if (next_cell) next_cell.focus();
       }); // addeventlistener
 
