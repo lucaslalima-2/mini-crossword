@@ -222,3 +222,10 @@ function crossword_add_input_behavior() {
     } // for col
   } // for row
 }; //function
+
+// Adds clues to columns
+function crossword_add_clue_columns() {
+  cluemap.forEach(e => {
+    console.log(e, cluemap[e]);
+  }); // foreach
+}// function
