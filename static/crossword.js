@@ -1,3 +1,5 @@
+const clue_across_container = document.getElementById("clue-column-across");
+const clue_down_container = document.getElementById("clue-column-down");
 const container = document.getElementById("crossword-container");
 const entries = crossword_json.entries;
 const grid_length = crossword_json.grid_length;
@@ -81,7 +83,7 @@ function crossword_add_numbers() {
           if (cluemap.has(key)) {
             cluemap.get(key).number = index;
           };//if
-        }); 
+        }); // foreach
         index+=1;
       } // if
     } // for
@@ -235,7 +237,21 @@ function crossword_add_input_behavior() {
 
 // Adds clues to columns
 function crossword_add_clue_columns() {
-  cluemap.forEach(e => {
-    console.log(e, cluemap[e]);
-  }); // foreach
+  // Convert cluemap to array and sort by clue number
+  const sorted_clues = Array.from(cluemap.entries())
+    .filter(([_, clue]) => clue.number !== null)
+    .sort((a, b) => a[1].number - b[1].number);
+  
+  // Render each clue
+  sorted_clues.forEach(([key, clue]) => {
+    const div = document.createElement("div");
+    div.className = "clue-item";
+    div.innerHTML = `<strong>${clue.number}</strong> ${clue.prompt}`;
+
+    if (clue.orientation === "across") {
+      clue_across_container.appendChild(div);
+    } else if (clue.orientation === "down") {
+      clue_down_container.appendChild(div);
+    }; // if-else
+  }); // forEach
 }// function

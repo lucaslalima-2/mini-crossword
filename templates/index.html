@@ -8,14 +8,14 @@
 <body>
   <h1> Crossword Puzzle</h1>
   <div id="game-container">
-    <span id="crossword-and-current-clue-container">
+    <div id="crossword-and-current-clue-container">
       <div id="current-clue-container">Current Clue Placeholder</div>
       <div id="crossword-container"></div>
-    </span>
-    <span id="clue-cointainer">
-      <span id="clue-column-across" class="clue-column">Across</span>
-      <span id="clue-column-down" class="clue-column">Down</span>
-    </span>
+    </div>
+    <div id="clue-container">
+      <div id="clue-column-across" class="clue-column">Across</div>
+      <div id="clue-column-down" class="clue-column">Down</div>
+    </div>
   </div>
   <script>
     const crossword_json = {{ crossword | tojson }};
