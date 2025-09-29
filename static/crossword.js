@@ -151,12 +151,13 @@ function scan_direction(row, col, rowdelta, coldelta) {
     col += coldelta
   }// while
 
-  // -- Handles wraparounds -- 
-  if(rowdelta===0 && coldelta===1 && col >= grid_length) { return scan_direction(row+1, 0, 0, 1); }
-  if(rowdelta===0 && coldelta===-1 && col < 0) { return scan_direction(row-1, grid_length-1, 0, -1); }
-  if(rowdelta===-1 && row < 0) { return scan_direction(grid_length-1, col-1, -1, 0); }
-  if(rowdelta===1 && row >= grid_length) { return scan_direction(0, col+1, 1, 0); }
-
+  // Handles wraparounds
+  if(rowdelta<=0 && coldelta<=0 && row<=0 && col<=0) { return scan_direction(grid_length-1, grid_length-1, 0, -1); } // left/up-arrow from top-left corner
+  if(rowdelta>=0 && coldelta>=0 && row>=grid_length-1 && col>=grid_length-1) { return scan_direction(0, 0, 0, 1); } // right/down-arrow from top-left corner
+  if(rowdelta===0 && coldelta===1 && col >= grid_length) { return scan_direction(row+1, 0, 0, 1); } // right-edge, next row
+  if(rowdelta===0 && coldelta===-1 && col < 0) { return scan_direction(row-1, grid_length-1, 0, -1); } // left-edge, prev row
+  if(rowdelta===-1 && row < 0) { return scan_direction(grid_length-1, col-1, -1, 0); } // top-edge, bottom of col to the left
+  if(rowdelta===1 && row >= grid_length) { return scan_direction(0, col+1, 1, 0); } // bot-edge, top of col to the right
   return null;
 } // function
 
