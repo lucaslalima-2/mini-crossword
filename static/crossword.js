@@ -131,10 +131,10 @@ function crossword_overwrite_tab() {
         if (e.key === "Tab") {
           e.preventDefault();
 
-          let delta = e.shiftKey ? -1 : 1;
+          let coldelta = e.shiftKey ? -1 : 1;
 
           // Finds next available cell in row
-          let next_cell = scan_board(row, col + delta, delta);
+          let next_cell = scan_direction(row, col+coldelta, 0, coldelta);
           if(next_cell) next_cell.focus();
         } // e.key tab
       }); // eventlistner
@@ -142,26 +142,23 @@ function crossword_overwrite_tab() {
   } // for row
 } // function
 
-// Scans board for an enabled cell on [Tab] or input update
-function scan_board(start_row, start_col, delta) {
-  let row = start_row;
-  while (row >= 0 && row < grid_length) {
-    const input = scan_row(row, start_col, delta);
-    if (input) return input;
-    row += delta;
-  } // while
-  return null;
-} // function
-
-// Helper scan function that only scans row on [Tab]
-function scan_row(row, col, delta){
-  while( col >= 0 && col < grid_length) {
+// Scanning function used for [Tab] and arrows
+function scan_direction(row, col, rowdelta, coldelta) {
+  while( row >= 0 && row < grid_length && col >= 0 && col < grid_length) {
     const input = input_map[row]?.[col];
     if (input && !input.disabled) return input;
-    col += delta;
-  } // while
+    row += rowdelta;
+    col += coldelta
+  }// while
+
+  // -- Handles wraparounds -- 
+  if(rowdelta===0 && coldelta===1 && col >= grid_length) { return scan_direction(row+1, 0, 0, 1); }
+  if(rowdelta===0 && coldelta===-1 && col < 0) { return scan_direction(row-1, grid_length-1, 0, -1); }
+  if(rowdelta===-1 && row < 0) { return scan_direction(grid_length-1, col-1, -1, 0); }
+  if(rowdelta===1 && row >= grid_length) { return scan_direction(0, col+1, 1, 0); }
+
   return null;
-}; // function
+} // function
 
 // Adds behavior to input to move to next cell
 function crossword_add_input_behavior() {
@@ -173,24 +170,31 @@ function crossword_add_input_behavior() {
       input.addEventListener("input", (e) => {
         const new_char = (e.data || input.value.slice(-1)).toUpperCase();
         input.value = new_char;
-        // console.log(`Input at [${row}, ${col}]: ${new_char}`);
-        const next_cell = scan_board(row, col+1, 1);
+        const next_cell = scan_direction(row, col, 0, 1);
         if (next_cell) next_cell.focus();
       }); // addeventlistener
 
       // Arrow navigation behavior
       input.addEventListener("keydown", (e) => {
         let target = null;
-        console.log("HERE :", e.key);
         switch(e.key){
           case "ArrowRight":
-            target = scan_board(row, col+1, 1);
+            target = scan_direction(row, col+1, 0, 1);
             break;
           case "ArrowLeft": 
-            target = scan_board(row, col-1, -1);
+            target = scan_direction(row, col-1, 0, -1);
+            break;
+          case "ArrowUp":
+            target = scan_direction(row-1, col, -1, 0);
+            break;
+          case "ArrowDown":
+            target = scan_direction(row+1, col, 1, 0);
             break;
         } // switch
-        if(target) target.focus(); // Updates pointer
+        if(target) {
+          e.preventDefault(); // prevent scroll
+          target.focus(); // Updates pointer
+        }; //if
       }); //addeventlistener
     } // for col
   } // for row
