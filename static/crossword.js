@@ -1,5 +1,5 @@
-const clue_across_container = document.getElementById("clue-column-across");
-const clue_down_container = document.getElementById("clue-column-down");
+const clue_list_across = document.getElementById("clue-list-across");
+const clue_list_down = document.getElementById("clue-list-down");
 const container = document.getElementById("crossword-container");
 const entries = crossword_json.entries;
 const grid_length = crossword_json.grid_length;
@@ -249,9 +249,9 @@ function crossword_add_clue_columns() {
     div.innerHTML = `<strong>${clue.number}</strong> ${clue.prompt}`;
 
     if (clue.orientation === "across") {
-      clue_across_container.appendChild(div);
+      clue_list_across.appendChild(div);
     } else if (clue.orientation === "down") {
-      clue_down_container.appendChild(div);
+      clue_list_down.appendChild(div);
     }; // if-else
   }); // forEach
 }// function

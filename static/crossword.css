@@ -1,17 +1,17 @@
+/* Crossword grid */
+
 #crossword-container {
   background-color: black;
   border: 3px solid black;
   display: grid;
-  gap: 1px;
+  gap: 0;
   justify-content: center;
   padding: 0;
 }
 
 .cell {
   height: 30px;
-  border: none;
-  /* border: 1px solid #ccc; */
-  /* box-shadow: inset 0 0 0 0.25px black; */
+  box-shadow: inset 0 0 0 1px black;
   text-align: center;
   vertical-align: middle;
   font-weight: bold;
@@ -60,26 +60,49 @@
   cursor: default;
 }
 
+/* Clue container */
+
+#clue-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* space between columns */
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Clue columns */
+
+.clue-column {
+  border: 1px solid #ccc;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+}
+
+.clue-column-title {
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  padding: 4px 0;
+  border-bottom: 1px;
+}
+
+#clue-list-across,
+#clue-list-down {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+/* Individual clue entries */
 .clue-item {
   margin: 4px 0;
   font-size: 14px;
 }
 .clue-item strong {
   margin-right: 6px;
-}
-
-#clue-container {
-  display: flex;
-  flex-direction: row;
-  gap: 20px; /* space between columns */
-  max-height: 300px;
-  overflow-x: auto;
-}
-
-.clue-column {
-  flex: 1;
-  overflow-y: auto;
-  padding: 8px;
-  border: 1px solid #ccc;
-  background-color: #f4f4f4;
 }
