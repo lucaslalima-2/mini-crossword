@@ -1,6 +1,7 @@
 const clue_list_across = document.getElementById("clue-list-across");
 const clue_list_down = document.getElementById("clue-list-down");
 const container = document.getElementById("crossword-container");
+const current_clue_container =   document.getElementById("current-clue-container");
 const entries = crossword_json.entries;
 const grid_length = crossword_json.grid_length;
 const input_map = {};
@@ -271,10 +272,14 @@ function crossword_add_clue_columns() {
   }); // forEach
 }// function
 
-// Focuses cursor on crossword
+// Focuses cursor on crossword & updates current clue text
 function crossword_focus(clue){
+  // Focus
   const { entry: { origin: { row, col } } } = clue;
   input_map[row][col].focus();
+
+  //Updates current-clue-container
+  current_clue_container.textContent = `${clue.prompt}`;
 } // function
 
 // Highlights input cells
