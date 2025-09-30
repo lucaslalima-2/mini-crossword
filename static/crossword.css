@@ -1,5 +1,11 @@
 /* Crossword grid */
 
+#current-clue-container {
+  background-color: #d3dff5;
+  padding-left: 10px;
+  text-align: left;
+}
+
 #crossword-container {
   background-color: black;
   border: 3px solid black;
@@ -63,8 +69,13 @@
   cursor: default;
 }
 
-.cell-highlighted {
-  box-shadow: inset 0 0 0 200px rgb(244, 244, 162);
+.cell-cursor-highlight {
+  box-shadow: inset 0 0 0 200px rgb(247, 232, 17);
+  transition: box-shadow 0s ease;
+}
+
+.cell-highlight {
+  box-shadow: inset 0 0 0 200px #d3dff5;
   transition: box-shadow 0s ease;
 }
 

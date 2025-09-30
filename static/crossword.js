@@ -83,7 +83,7 @@ function crossword_add_numbers() {
         ["across", "down"].forEach(orientation => {
           const key = `${row}-${col}-${orientation}`;
           if (cluemap.has(key)) {
-            cluemap.get(key).number = index;
+            cluemap.get(key).index = index;
           };//if
         }); // foreach
         index+=1;
@@ -241,15 +241,15 @@ function crossword_add_input_behavior() {
 function crossword_add_clue_columns() {
   // Convert cluemap to array and sort by clue number
   const sorted_clues = Array.from(cluemap.entries())
-    .filter(([_, clue]) => clue.number !== null)
-    .sort((a, b) => a[1].number - b[1].number);
+    .filter(([_, clue]) => clue.index !== null)
+    .sort((a, b) => a[1].index - b[1].index);
   
   // Render each clue
   sorted_clues.forEach(([key, clue]) => {
     const div = document.createElement("div");
     div.className = "clue-item";
     div.setAttribute("clue-key", key);
-    div.innerHTML = `<strong>${clue.number}</strong> ${clue.prompt}`;
+    div.innerHTML = `<strong>${clue.index}</strong> ${clue.prompt}`;
 
     // Appends to correct column
     if (clue.orientation === "across") {
@@ -267,7 +267,8 @@ function crossword_add_clue_columns() {
     // Adds highlight behavior
     div.addEventListener("click", () => {
       clear_highlight();
-      highlight(clue.used_cells);
+      const { entry: { origin: { row, col } } } = clue;
+      highlight(clue.used_cells, row, col);
     }); // addeventlistener
   }); // forEach
 }// function
@@ -279,20 +280,27 @@ function crossword_focus(clue){
   input_map[row][col].focus();
 
   //Updates current-clue-container
-  current_clue_container.textContent = `${clue.prompt}`;
+  current_clue_container.innerHTML = `<strong>${clue.index}</strong> ${clue.prompt}`;
 } // function
 
 // Highlights input cells
-function highlight(cells){
+function highlight(cells, cursor_row, cursor_col){
   cells.forEach( ([row, col]) => {
     const input = input_map?.[row]?.[col];
-    if (input) input.classList.add("cell-highlighted");
+    if (!input) return;
+
+    // Highlights row/col with respect to main pointer
+    if (row===cursor_row && col === cursor_col) {
+      input.classList.add("cell-cursor-highlight");
+    } else {
+      input.classList.add("cell-highlight");
+    } // if-else
   }); //foreach
 }// function
 
 // Clear highlights
-function clear_highlight(cells) {
-  document.querySelectorAll(".cell-highlighted").forEach(input => {
-    input.classList.remove("cell-highlighted");
+function clear_highlight() {
+  document.querySelectorAll(".cell-highlight, .cell-cursor-highlight").forEach(input => {
+    input.classList.remove("cell-highlight", "cell-cursor-highlight");
   }); 
 } // function
