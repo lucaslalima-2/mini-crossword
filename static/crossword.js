@@ -197,7 +197,11 @@ function crossword_add_input_behavior() {
       // Focus behavior
       input.addEventListener("focus", () => {
         const key = `${row}-${col}-${last_direction}`;
-        console.log(key);
+        if(cluemap.has(key)) {
+          active_clue = cluemap.get(key);
+          clear_highlight();
+          highlight(active_clue.used_cells, row, col);
+        } // if
       }); // addeventlistener
 
       // Arrow navigation behavior
