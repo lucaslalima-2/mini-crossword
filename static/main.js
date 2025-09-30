@@ -5,4 +5,6 @@ window.onload = () => {
     crossword_initialize_cells();
     crossword_overwrite_tab();
     crossword_add_input_behavior();
+    crossword_add_clue_columns();
+    crossword_start_game();
 };

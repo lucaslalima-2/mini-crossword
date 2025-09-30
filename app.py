@@ -7,7 +7,7 @@ from src.crossword_builder import CrosswordBuilder
 from src.open_browser import open_browser
 
 # Variables
-json_path = "./crossword_export_debug.json" # Target json to build
+json_path = "./crossword_export.json" # Target json to build
 
 # Application start
 app = Flask(__name__)

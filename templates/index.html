@@ -8,19 +8,26 @@
 <body>
   <h1> Crossword Puzzle</h1>
   <div id="game-container">
-    <span id="crossword-and-current-clue-container">
-      <div id="current-clue-container">Current Clue Placeholder</div>
+    <div id="crossword-and-current-clue-container">
+      <div id="current-clue-container">&#8203;</div>
       <div id="crossword-container"></div>
-    </span>
-    <span id="clue-cointainer">
-      <span id="clue-column-across" class="clue-column">Across</span>
-      <span id="clue-column-down" class="clue-column">Down</span>
-    </span>
+    </div>
+    <div id="clue-container">
+      <div class="clue-column">
+        <div class="clue-column-title">Across</div>
+        <div id="clue-list-across"></div>
+      </div>
+      <div class="clue-column">
+        <div class="clue-column-title">Down</div>
+        <div id="clue-list-down"></div>
+      </div>
+    </div>
   </div>
   <script>
     const crossword_json = {{ crossword | tojson }};
   </script>
   <script src="{{ url_for('static', filename='crossword.js') }}"></script>
+  <script src="{{ url_for('static', filename='crossword_start_game.js') }}"></script>
   <script src="{{ url_for('static', filename='main.js') }}"></script>  
 </body>
 </html>
