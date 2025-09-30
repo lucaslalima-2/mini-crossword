@@ -1,3 +1,4 @@
+let active_clue = null; // stores active clue
 const clue_list_across = document.getElementById("clue-list-across");
 const clue_list_down = document.getElementById("clue-list-down");
 const container = document.getElementById("crossword-container");
@@ -196,6 +197,16 @@ function crossword_add_input_behavior() {
         if (next_cell) next_cell.focus();
       }); // addeventlistener
 
+      // Focus behavior
+      input.addEventListener("focus", () => {
+        if(!active_clue) return;
+
+        const is_in_clue = active_clue.used_cells.some(([r, c]) => r===row && c===col);
+        if (!is_in_clue) return;
+        clear_highlight();
+        highlight(active_clue.used_cells, row, col)
+      }); // addeventlistener
+
       // Arrow navigation behavior
       input.addEventListener("keydown", (e) => {
         let target = null;
@@ -268,12 +279,13 @@ function crossword_add_clue_columns() {
     div.addEventListener("click", () => {
       clear_highlight();
       const { entry: { origin: { row, col } } } = clue;
+      active_clue = clue;
       highlight(clue.used_cells, row, col);
     }); // addeventlistener
   }); // forEach
 }// function
 
-// Focuses cursor on crossword & updates current clue text
+// Focuses cursor on crossword grid & updates current clue text
 function crossword_focus(clue){
   // Focus
   const { entry: { origin: { row, col } } } = clue;
