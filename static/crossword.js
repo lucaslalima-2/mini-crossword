@@ -49,6 +49,7 @@ function crossword_create_grid() {
 }; //function
 
 // Adds numbers to upper-left corner of cells
+// Builds cluemap
 function crossword_add_numbers() {
   let index = 1;
 
@@ -246,12 +247,26 @@ function crossword_add_clue_columns() {
   sorted_clues.forEach(([key, clue]) => {
     const div = document.createElement("div");
     div.className = "clue-item";
+    div.setAttribute("clue-key", key);
     div.innerHTML = `<strong>${clue.number}</strong> ${clue.prompt}`;
 
+    // Appends to correct column
     if (clue.orientation === "across") {
       clue_list_across.appendChild(div);
     } else if (clue.orientation === "down") {
       clue_list_down.appendChild(div);
     }; // if-else
+
+    // Adds click-behavior
+    div.addEventListener("click", () => {
+      const clue_data = cluemap.get(key);
+      if(clue_data) crossword_focus(clue_data);
+    }); // addeventlistner
   }); // forEach
 }// function
+
+// Focuses cursor on crossword
+function crossword_focus(clue){
+  const { entry: { origin: { row, col } } } = clue;
+  input_map[row][col].focus();
+} // function

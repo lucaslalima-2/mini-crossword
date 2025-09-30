@@ -75,6 +75,7 @@
 .clue-column {
   border: 1px solid #ccc;
   background-color: #f4f4f4;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -100,8 +101,9 @@
 
 /* Individual clue entries */
 .clue-item {
-  margin: 4px 0;
   font-size: 14px;
+  margin: 4px 0;
+  text-align: left;
 }
 .clue-item strong {
   margin-right: 6px;
