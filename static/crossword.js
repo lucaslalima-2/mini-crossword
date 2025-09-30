@@ -262,6 +262,12 @@ function crossword_add_clue_columns() {
       const clue_data = cluemap.get(key);
       if(clue_data) crossword_focus(clue_data);
     }); // addeventlistner
+
+    // Adds highlight behavior
+    div.addEventListener("click", () => {
+      clear_highlight();
+      highlight(clue.used_cells);
+    }); // addeventlistener
   }); // forEach
 }// function
 
@@ -269,4 +275,19 @@ function crossword_add_clue_columns() {
 function crossword_focus(clue){
   const { entry: { origin: { row, col } } } = clue;
   input_map[row][col].focus();
+} // function
+
+// Highlights input cells
+function highlight(cells){
+  cells.forEach( ([row, col]) => {
+    const input = input_map?.[row]?.[col];
+    if (input) input.classList.add("cell-highlighted");
+  }); //foreach
+}// function
+
+// Clear highlights
+function clear_highlight(cells) {
+  document.querySelectorAll(".cell-highlighted").forEach(input => {
+    input.classList.remove("cell-highlighted");
+  }); 
 } // function
