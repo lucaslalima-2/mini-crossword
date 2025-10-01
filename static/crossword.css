@@ -92,8 +92,7 @@
 /* Clue columns */
 
 .clue-column {
-  border: 1px solid #ccc;
-  background-color: #f4f4f4;
+  background-color:  #eef2f6;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -103,27 +102,37 @@
 }
 
 .clue-column-title {
+  background-color: white;
   flex-shrink: 0;
   font-size: 16px;
   font-weight: bold;
   text-align: left;
   padding: 4px 0;
   border-bottom: 1px;
+  padding-bottom: 0px;
 }
 
 #clue-list-across,
 #clue-list-down {
+  border-radius: 5px;
   flex-grow: 1;
   overflow-y: auto;
-  padding: 8px;
+  padding: 0 5px 0 5px;
+
 }
 
 /* Individual clue entries */
 .clue-item {
+  border-radius: 5px;
   font-size: 14px;
-  margin: 4px 0;
+  margin: 6px 0px;
+  padding: 5px 5px;
   text-align: left;
 }
 .clue-item strong {
   margin-right: 6px;
+}
+
+.clue-item-active {
+  background-color: #d3dff5;
 }

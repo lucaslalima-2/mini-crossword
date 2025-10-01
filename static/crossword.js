@@ -219,6 +219,7 @@ function crossword_add_input_behavior() {
           clear_highlight();
           highlight(matched_clue.used_cells, row, col);
           set_prompt(matched_clue);
+          set_current_clue_item(matched_clue);
         } else { // unsure if used
           active_clue = null;
           clear_highlight();
@@ -309,8 +310,8 @@ function crossword_add_clue_columns() {
       // Sets focus + highlight
       const { entry: { origin: { row, col } } } = clue;
       input_map[row][col].focus();
-      clear_highlight();
-      highlight(clue.used_cells, row, col);
+      // clear_highlight();
+      // highlight(clue.used_cells, row, col);
     }); // addeventlistener
   }); // forEach
 }// function
@@ -318,6 +319,20 @@ function crossword_add_clue_columns() {
 // Updates prompt
 function set_prompt(clue){
   current_clue_container.innerHTML = `<strong>${clue.index}</strong> ${clue.prompt}`;
+} // function
+
+// Updates clue column item
+function set_current_clue_item(clue) {
+  // Removes all previous
+  document.querySelectorAll(".clue-item").forEach(item => {
+    item.classList.remove("clue-item-active");
+  }); // queryselectorall
+  // Add  
+  const clue_key = `${clue.entry.origin.row}-${clue.entry.origin.col}-${clue.orientation}`;
+  const active_div = document.querySelector(`.clue-item[clue-key="${clue_key}"]`);
+  if (active_div) {
+    active_div.classList.add("clue-item-active");
+  }; // if
 } // function
 
 // Highlights input cells
