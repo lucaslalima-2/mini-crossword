@@ -190,7 +190,13 @@ function crossword_add_input_behavior() {
       input.addEventListener("input", (e) => {
         const new_char = (e.data || input.value.slice(-1)).toUpperCase();
         input.value = new_char;
-        const next_cell = scan_direction(row, col+1, 0, 1);
+        let next_cell = null;
+        if(last_direction==="across") {
+          next_cell = scan_direction(row, col+1, 0, 1);
+        } else {
+          next_cell = scan_direction(row+1, col, 1, 0);
+        }; //if-else
+        
         if (next_cell) next_cell.focus();
       }); // addeventlistener
 
@@ -254,7 +260,12 @@ function crossword_add_input_behavior() {
           if (input.value) {
             input.value = "";
           } else { // Case 2: Cell is empty; clear left-neighbor cell
-            const prev = scan_direction(row, col-1, 0, -1);
+            let prev = null;
+            if(last_direction ==="across") {
+              prev = scan_direction(row, col-1, 0, -1);
+            } else {
+              prev = scan_direction(row-1, col, -1, 0);
+            }; // if-else
             prev.value = "";
             prev.focus();
           }; // if-else
