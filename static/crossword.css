@@ -88,9 +88,14 @@
   pointer-events: none; /* blocks mouse interaction */
 }
 
-.cell-endgame {
-  pointer-events: none;   /* disables clicks, hovers, etc. */
+.cell-input.cell-explore {
+  cursor: default;
+  pointer-events: auto;        /* Allow mouse interaction */
   opacity: 1;
+}
+
+.cell-explore {
+  cursor: default;
 }
 
 /* Clue container */
