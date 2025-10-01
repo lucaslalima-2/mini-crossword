@@ -150,10 +150,15 @@ function crossword_overwrite_tab() {
         if (e.key === "Tab") {
           e.preventDefault();
 
-          let coldelta = e.shiftKey ? -1 : 1;
+          let delta = e.shiftKey ? -1 : 1;
 
           // Finds next available cell in row
-          let next_cell = scan_direction(row, col+coldelta, 0, coldelta);
+          let next_cell = null;
+          if (last_direction=="across") {
+            next_cell = scan_direction(row, col+delta, 0, delta);
+          } else {
+            next_cell = scan_direction(row+delta, col, delta, 0);
+          } // if-else
           if(next_cell) next_cell.focus();
         } // e.key tab
       }); // eventlistner
@@ -199,6 +204,9 @@ function crossword_add_input_behavior() {
         
         // Check endgame
         const solved = crossword_check_solution();
+        if(solved){
+          null;
+        } // solved
         
         if (next_cell) next_cell.focus();
       }); // addeventlistener
