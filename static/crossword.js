@@ -198,8 +198,8 @@ function crossword_add_input_behavior() {
         }; //if-else
         
         // Check endgame
-        crossowrd_check_solution();
-
+        const solved = crossword_check_solution();
+        
         if (next_cell) next_cell.focus();
       }); // addeventlistener
 
@@ -313,8 +313,6 @@ function crossword_add_clue_columns() {
       // Sets focus + highlight
       const { entry: { origin: { row, col } } } = clue;
       input_map[row][col].focus();
-      // clear_highlight();
-      // highlight(clue.used_cells, row, col);
     }); // addeventlistener
   }); // forEach
 }// function

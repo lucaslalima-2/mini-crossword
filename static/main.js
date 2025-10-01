@@ -6,6 +6,7 @@ window.onload = () => {
     crossword_overwrite_tab();
     crossword_add_input_behavior();
     crossword_add_clue_columns();
+    crossword_build_solution();
     crossword_start_game();
 
     if(debug_mode) crossword_fill_board();
