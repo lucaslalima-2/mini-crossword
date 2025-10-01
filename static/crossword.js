@@ -196,12 +196,27 @@ function crossword_add_input_behavior() {
 
       // Focus behavior
       input.addEventListener("focus", () => {
-        const key = `${row}-${col}-${last_direction}`;
-        if(cluemap.has(key)) {
-          active_clue = cluemap.get(key);
+        let matched_clue = null;
+
+        for(const [key, clue] of cluemap.entries()) {
+          const matches_cell = clue.used_cells.some(([r, c]) => r===row && c===col);
+          const matches_direction = clue.orientation === last_direction;
+
+          if (matches_cell && matches_direction) {
+            matched_clue = clue;
+            break;
+          } // if
+        } // for
+
+        if (matched_clue) {
           clear_highlight();
-          highlight(active_clue.used_cells, row, col);
-        } // if
+          highlight(matched_clue.used_cells, row, col)
+        } else {
+          active_clue = null;
+          clear_highlight()
+        } // if-else
+
+
       }); // addeventlistener
 
       // Arrow navigation behavior
