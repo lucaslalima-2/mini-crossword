@@ -10,11 +10,14 @@ setup:
 run:
 	$(VENV_NAME)/bin/python3 app.py
 
-debug:
-	$(VENV_NAME)/bin/python3 app.py --debug
+loadbuild:
+	$(VENV_NAME)/bin/python3 app.py --load_build
 
 skipbuild:
-	$(VENV_NAME)/bin/python3 app.py --debug --skipbuild
+	$(VENV_NAME)/bin/python3 app.py --skipbuild
+
+debug:
+	$(VENV_NAME)/bin/python3 app.py --skipbuild --debug
 
 clean:
 	rm -rf $(VENV_NAME)
