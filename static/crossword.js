@@ -211,10 +211,11 @@ function crossword_add_input_behavior() {
 
         if (matched_clue) {
           clear_highlight();
-          highlight(matched_clue.used_cells, row, col)
-        } else {
+          highlight(matched_clue.used_cells, row, col);
+          set_prompt(matched_clue);
+        } else { // unsure if used
           active_clue = null;
-          clear_highlight()
+          clear_highlight();
         } // if-else
       }); // addeventlistener
 
@@ -303,12 +304,8 @@ function crossword_add_clue_columns() {
   }); // forEach
 }// function
 
-// Focuses cursor on crossword grid & updates current clue text
-function crossword_focus(clue){
-  const { entry: { origin: { row, col } } } = clue;
-  // Focuses
-  input_map[row][col].focus();
-  //Updates current-clue-container
+// Updates prompt
+function set_prompt(clue){
   current_clue_container.innerHTML = `<strong>${clue.index}</strong> ${clue.prompt}`;
 } // function
 
