@@ -8,7 +8,5 @@ window.onload = () => {
     crossword_add_clue_columns();
     crossword_start_game();
 
-    if(debug_mode) {
-        crossword_fill_board();
-    } // if
+    if(debug_mode) crossword_fill_board();
 };
