@@ -6,7 +6,6 @@ function crossword_check_solution() {
             const solution = solution_map[r][c];
 
             if(!input || input.disabled || solution === null) continue;
-            console.log("Input Value: ", input.value, "...Solution: ", solution);
 
             const value = input.value.toUpperCase();
             if (value !== solution) {
