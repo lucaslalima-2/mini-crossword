@@ -1,4 +1,5 @@
 let active_clue = null; // stores active clue
+backspace_enabled = true;
 const clue_list_across = document.getElementById("clue-list-across");
 const clue_list_down = document.getElementById("clue-list-down");
 const cluemap = new Map();
@@ -268,6 +269,11 @@ function crossword_add_input_behavior() {
       // Backspace behavior
       input.addEventListener("keydown", (e) => {
         if (e.key === "Backspace") {
+          if(!backspace_enabled) {
+            e.preventDefault();
+            return;
+          }; // if -> for endgame
+
           e.preventDefault();
           // Case 1: Cell has char; delete it and stay in place
           if (input.value) {

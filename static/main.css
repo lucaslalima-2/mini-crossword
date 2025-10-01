@@ -25,7 +25,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  border: 3px solid #4CAF50;
+  border: none;
+  border-radius: 5px;
   padding: 30px 50px;
   font-size: 2em;
   font-weight: bold;
