@@ -18,7 +18,8 @@ app.secret_key = os.environ.get("DEV_SECRET_KEY")
 def index():
 	with open(json_path, "r") as f:
 		crossword_json = json.load(f)
-	return render_template("index.html", crossword=crossword_json)
+	debug_flag = "--debug" in os.sys.argv
+	return render_template("index.html", crossword=crossword_json, debugflag=debug_flag)
 
 # === Main === 
 def main():
