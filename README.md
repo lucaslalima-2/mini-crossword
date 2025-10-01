@@ -17,8 +17,8 @@ After setting up your python environment:
 
 # USAGE
 * To see full extent of my code, I suggest running: 
-   * make debug
-* This will load a board identical to the one seen in example_crossword.png
+   * make skipbuild
+* This will load a board identical to the one seen in example_crossword.png, except the last square. This will allow a demo of the endgame pretty quickly.
 
 # FUTURE UPDATES
 * During crossword_builder export; add before and after buttons to scan through all clues
