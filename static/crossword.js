@@ -198,6 +198,7 @@ function crossword_add_input_behavior() {
       input.addEventListener("focus", () => {
         let matched_clue = null;
 
+        // Reverse searches cluemap to highlight row
         for(const [key, clue] of cluemap.entries()) {
           const matches_cell = clue.used_cells.some(([r, c]) => r===row && c===col);
           const matches_direction = clue.orientation === last_direction;
@@ -215,8 +216,6 @@ function crossword_add_input_behavior() {
           active_clue = null;
           clear_highlight()
         } // if-else
-
-
       }); // addeventlistener
 
       // Arrow navigation behavior
