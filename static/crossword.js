@@ -1,13 +1,13 @@
 let active_clue = null; // stores active clue
 const clue_list_across = document.getElementById("clue-list-across");
 const clue_list_down = document.getElementById("clue-list-down");
+const cluemap = new Map();
 const container = document.getElementById("crossword-container");
 const current_clue_container =   document.getElementById("current-clue-container");
 const entries = crossword_json.entries;
 const grid_length = crossword_json.grid_length;
 const input_map = {};
-const cluemap = new Map();
-let input_direction = "across";
+let last_direction = "across";
 
 // Creates empty grid
 function crossword_create_grid() {
@@ -121,9 +121,6 @@ function crossword_initialize_cells () {
       // Removes from list
       all_cells.delete(cell_id); 
     } // for
-
-    // Initializes pointer to first cell
-    input_map[0][0].focus();
   }); //foreach
 
   // After all entries are seen, iterate over the rest of all_cells list
@@ -199,12 +196,26 @@ function crossword_add_input_behavior() {
 
       // Focus behavior
       input.addEventListener("focus", () => {
-        if(!active_clue) return;
+        let matched_clue = null;
 
-        const is_in_clue = active_clue.used_cells.some(([r, c]) => r===row && c===col);
-        if (!is_in_clue) return;
-        clear_highlight();
-        highlight(active_clue.used_cells, row, col)
+        // Reverse searches cluemap to highlight row
+        for(const [key, clue] of cluemap.entries()) {
+          const matches_cell = clue.used_cells.some(([r, c]) => r===row && c===col);
+          const matches_direction = clue.orientation === last_direction;
+
+          if (matches_cell && matches_direction) {
+            matched_clue = clue;
+            break;
+          } // if
+        } // for
+
+        if (matched_clue) {
+          clear_highlight();
+          highlight(matched_clue.used_cells, row, col)
+        } else {
+          active_clue = null;
+          clear_highlight()
+        } // if-else
       }); // addeventlistener
 
       // Arrow navigation behavior
@@ -212,15 +223,19 @@ function crossword_add_input_behavior() {
         let target = null;
         switch(e.key){
           case "ArrowRight":
+            last_direction = "across";
             target = scan_direction(row, col+1, 0, 1);
             break;
           case "ArrowLeft": 
+            last_direction = "across";
             target = scan_direction(row, col-1, 0, -1);
             break;
           case "ArrowUp":
+            last_direction = "down";
             target = scan_direction(row-1, col, -1, 0);
             break;
           case "ArrowDown":
+            last_direction = "down";
             target = scan_direction(row+1, col, 1, 0);
             break;
         } // switch
@@ -271,15 +286,18 @@ function crossword_add_clue_columns() {
 
     // Adds click-behavior
     div.addEventListener("click", () => {
-      const clue_data = cluemap.get(key);
-      if(clue_data) crossword_focus(clue_data);
-    }); // addeventlistner
-
-    // Adds highlight behavior
-    div.addEventListener("click", () => {
-      clear_highlight();
-      const { entry: { origin: { row, col } } } = clue;
+      // Fetches clue data
+      const clue = cluemap.get(key);
+      if(!clue) return;
+      
+      // Updates globals
       active_clue = clue;
+      last_direction = clue.orientation;
+      
+      // Sets focus + highlight
+      const { entry: { origin: { row, col } } } = clue;
+      input_map[row][col].focus();
+      clear_highlight();
       highlight(clue.used_cells, row, col);
     }); // addeventlistener
   }); // forEach
@@ -287,10 +305,9 @@ function crossword_add_clue_columns() {
 
 // Focuses cursor on crossword grid & updates current clue text
 function crossword_focus(clue){
-  // Focus
   const { entry: { origin: { row, col } } } = clue;
+  // Focuses
   input_map[row][col].focus();
-
   //Updates current-clue-container
   current_clue_container.innerHTML = `<strong>${clue.index}</strong> ${clue.prompt}`;
 } // function
