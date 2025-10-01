@@ -301,8 +301,8 @@
         "row": 3,
         "col": 9
       },
-      "orientation": "Ending for many government websites",
-      "prompt": "a",
+      "orientation": "across",
+      "prompt": "Ending for many government websites",
       "used_cells": [
         [
           3,
