@@ -79,8 +79,21 @@
   transition: box-shadow 0s ease;
 }
 
-/* Clue container */
+.cell-input.endgame {
+  background-color: #d3dff5;
+  color: black;
+  cursor: none;
+  font-weight: bold;
+  opacity: 1;
+  pointer-events: none; /* blocks mouse interaction */
+}
 
+.cell-endgame {
+  pointer-events: none;   /* disables clicks, hovers, etc. */
+  opacity: 1;
+}
+
+/* Clue container */
 #clue-container {
   display: flex;
   flex-direction: row;

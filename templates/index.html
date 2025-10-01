@@ -7,6 +7,10 @@
 </head>
 <body>
   <h1> Crossword Puzzle</h1>
+  <div id="endgame-banner" style="display: none;">
+    🎉 Congratulations, you've won!
+    <button id="explore-button">Explore this board</button>
+  </div>
   <div id="game-container">
     <div id="crossword-and-current-clue-container">
       <div id="current-clue-container">&#8203;</div>
@@ -32,6 +36,7 @@
   <script src="{{ url_for('static', filename='crossword_fill_board.js') }}"></script>
   <script src="{{ url_for('static', filename='crossword_build_solution.js') }}"></script>
   <script src="{{ url_for('static', filename='crossword_check_solution.js') }}"></script>
+  <script src="{{ url_for('static', filename='crossword_endgame.js') }}"></script>  
   <script src="{{ url_for('static', filename='main.js') }}"></script>  
 </body>
 </html>
