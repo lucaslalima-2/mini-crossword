@@ -186,16 +186,19 @@ function crossword_add_input_behavior() {
     for (let col=0; col < grid_length; col++){
       const input = input_map[row][col]
 
-      // Overwrite behavior
+      // Insert letter behavior
       input.addEventListener("input", (e) => {
         const new_char = (e.data || input.value.slice(-1)).toUpperCase();
         input.value = new_char;
         let next_cell = null;
         if(last_direction==="across") {
           next_cell = scan_direction(row, col+1, 0, 1);
-        } else {
+        } else { //down
           next_cell = scan_direction(row+1, col, 1, 0);
         }; //if-else
+        
+        // Check endgame
+        const solved = crossword_check_solution();
         
         if (next_cell) next_cell.focus();
       }); // addeventlistener
@@ -310,8 +313,6 @@ function crossword_add_clue_columns() {
       // Sets focus + highlight
       const { entry: { origin: { row, col } } } = clue;
       input_map[row][col].focus();
-      // clear_highlight();
-      // highlight(clue.used_cells, row, col);
     }); // addeventlistener
   }); // forEach
 }// function
