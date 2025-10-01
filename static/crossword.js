@@ -205,7 +205,8 @@ function crossword_add_input_behavior() {
         // Check endgame
         const solved = crossword_check_solution();
         if(solved){
-          null;
+          crossword_endgame();
+          return;
         } // solved
         
         if (next_cell) next_cell.focus();
