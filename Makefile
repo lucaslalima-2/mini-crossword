@@ -11,13 +11,13 @@ run:
 	$(VENV_NAME)/bin/python3 app.py
 
 loadbuild:
-	$(VENV_NAME)/bin/python3 app.py --load_build
+	$(VENV_NAME)/bin/python3 app.py --loadbuild
 
 skipbuild:
 	$(VENV_NAME)/bin/python3 app.py --skipbuild
 
-debug:
-	$(VENV_NAME)/bin/python3 app.py --skipbuild --debug
+loadsolution:
+	$(VENV_NAME)/bin/python3 app.py --loadsolution
 
 clean:
 	rm -rf $(VENV_NAME)
