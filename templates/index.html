@@ -30,7 +30,6 @@
   <script>
     const crossword_json = {{ crossword | tojson | safe }}
     const debug_mode = {{ 'true' if debugflag else 'false' }};
-    console.log(debug_mode);
   </script>
   <script src="{{ url_for('static', filename='crossword.js') }}"></script>
   <script src="{{ url_for('static', filename='crossword_start_game.js') }}"></script>

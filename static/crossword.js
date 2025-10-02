@@ -4,11 +4,13 @@ const clue_list_across = document.getElementById("clue-list-across");
 const clue_list_down = document.getElementById("clue-list-down");
 const cluemap = new Map();
 const container = document.getElementById("crossword-container");
-const current_clue_container =   document.getElementById("current-clue-container");
+const current_clue_container =  document.getElementById("current-clue-container");
 const entries = crossword_json.entries;
 const grid_length = crossword_json.grid_length;
 const input_map = {};
 let last_direction = "across";
+let posted_across_map = new Map();
+let posted_down_map = new Map();
 
 // Creates empty grid
 function crossword_create_grid() {
@@ -150,17 +152,34 @@ function crossword_overwrite_tab() {
       input.addEventListener("keydown", (e) => {
         if (e.key === "Tab") {
           e.preventDefault();
-
-          let delta = e.shiftKey ? -1 : 1;
-
-          // Finds next available cell in row
-          let next_cell = null;
-          if (last_direction=="across") {
-            next_cell = scan_direction(row, col+delta, 0, delta);
+          
+          // Finds max clue index (seen in columns)
+          let largest_key = -Infinity;
+          if (active_clue.orientation === "across") {
+            largest_key = Math.max(...Array.from(posted_across_map.keys()));
           } else {
-            next_cell = scan_direction(row+delta, col, delta, 0);
-          } // if-else
-          if(next_cell) next_cell.focus();
+            largest_key = Math.max(...Array.from(posted_down_map.keys()));
+          }; //if-else
+
+          // Finds next index
+          let tempindex = active_clue.index;
+          let nextclue = null;
+          const targetmap = active_clue.orientation === "across" ? posted_across_map : posted_down_map;
+
+          while(nextclue === null) {
+            tempindex++;
+            if (tempindex > largest_key) {
+              tempindex = 0;
+              continue;
+            }; //if
+            if (targetmap.has(tempindex)) {
+              nextclue = targetmap.get(tempindex);
+            }; //if
+          };//while
+
+          // Sets cursor
+          console.log(nextclue);
+          input_map[nextclue.entry.origin.row][nextclue.entry.origin.col].focus();
         } // e.key tab
       }); // eventlistner
     } // for col
@@ -229,6 +248,7 @@ function crossword_add_input_behavior() {
         } // for
 
         if (matched_clue) {
+          active_clue = matched_clue;
           clear_highlight();
           highlight(matched_clue.used_cells, row, col);
           set_prompt(matched_clue);
@@ -311,8 +331,10 @@ function crossword_add_clue_columns() {
     // Appends to correct column
     if (clue.orientation === "across") {
       clue_list_across.appendChild(div);
+      posted_across_map.set(clue.index, clue);
     } else if (clue.orientation === "down") {
       clue_list_down.appendChild(div);
+      posted_down_map.set(clue.index, clue);
     }; // if-else
 
     // Adds click-behavior
