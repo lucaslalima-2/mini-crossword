@@ -161,24 +161,32 @@ function crossword_overwrite_tab() {
             largest_key = Math.max(...Array.from(posted_down_map.keys()));
           }; //if-else
 
+          console.log(largest_key);
+
           // Finds next index
           let tempindex = active_clue.index;
           let nextclue = null;
           const targetmap = active_clue.orientation === "across" ? posted_across_map : posted_down_map;
 
+          const delta = e.shiftKey ? -1 : 1; // shift+tab goes backwards
+
           while(nextclue === null) {
-            tempindex++;
+            tempindex += delta;
             if (tempindex > largest_key) {
               tempindex = 0;
               continue;
             }; //if
+
+            if (tempindex < 0 ){
+              tempindex = largest_key;
+            } // if
+
             if (targetmap.has(tempindex)) {
               nextclue = targetmap.get(tempindex);
             }; //if
           };//while
 
           // Sets cursor
-          console.log(nextclue);
           input_map[nextclue.entry.origin.row][nextclue.entry.origin.col].focus();
         } // e.key tab
       }); // eventlistner
