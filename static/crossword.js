@@ -161,8 +161,6 @@ function crossword_overwrite_tab() {
             largest_key = Math.max(...Array.from(posted_down_map.keys()));
           }; //if-else
 
-          console.log(largest_key);
-
           // Finds next index
           let tempindex = active_clue.index;
           let nextclue = null;
