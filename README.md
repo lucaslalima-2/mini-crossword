@@ -26,3 +26,5 @@ After setting up your python environment:
 * During crossword_builder export; add before and after buttons to scan through all clues
 * Introduce a tab perhaps with all clues visible and a text box under each clue for their propt/description
 * Add a save button to generate the json
+* Fix tab and insert so that the cursor moves to the next unsolved clue, not necessarily the next one in the column
+* Udpate the columns when a word is attempted; change the color of the text in the div
